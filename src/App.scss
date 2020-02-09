@@ -1,0 +1,20 @@
+//컬러
+$color-main: #1F8CE6;
+$color-sub: #99D1FF;
+$white: #fff;
+$black: #303538;
+$grey: #ddd;
+$pink: #e96968;
+
+//웹폰트
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+//fontello
+@import './scss/fontello/css/animation.css';
+@import './scss/fontello/css/fontello.css';
+
+//style
+@import './scss/Reset.scss';
+@import './scss/Common.scss';
+@import './scss/Header.scss';
+@import './scss/Footer.scss';
