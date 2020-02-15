@@ -19,6 +19,7 @@ const LayoutHeader = () => {
                 </div>
                 <div className="header-btn">
                     <NavLink to="/login" className="login">로그인</NavLink> 
+                    <NavLink to="/signup" className="signup">회원가입</NavLink> 
                 </div>
             </div>
             <div className="header-bottom">

@@ -55,9 +55,11 @@
 
         }
         .header-btn{
+            float: right;
             a{  
-                float: right;
-                width: 80px;
+                float: left;
+                width: 90px;
+                margin-left: 10px;
                 box-sizing: border-box;
                 background-color: $color-main;
                 border: 1px solid $color-sub;

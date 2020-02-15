@@ -22,11 +22,16 @@ const Login = () => {
                         </span>
                         <button className="btn-login">로그인</button>
                     </form>
+                    <div className="sns-login">
+                        <button>Google 로그인</button>
+                        <button>Kakao 로그인</button>
+                        <button>Naver 로그인</button>
+                    </div>
                 </div>
-                <nav className="signup">
-                    <a href="#1">회원가입</a>
-                    <a href="#1">아이디 찾기</a>
-                    <a href="#1">비밀번호 찾기</a>
+                <nav className="menu">
+                    <a href="/signup">회원가입</a>
+                    <a href="#">아이디 찾기</a>
+                    <a href="#">비밀번호 찾기</a>
                 </nav>
             </div>
         </div>

@@ -1,0 +1,63 @@
+html,
+body,
+#root {
+    height: 100%;
+}
+
+#signUp {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    .wrap-signup {
+        display: table-cell;
+        .dj-logo a{
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 40px;
+            color:#1F8CE6;
+            letter-spacing: -1.5px;
+        }
+        .wrap-signup-form {
+            display: block;
+            width: 435px;
+            margin: 0 auto;
+            .input-area {
+                display: block;
+                height: 55px;
+                border: 1px solid #1F8CE6;
+                + .input-area {
+                    margin-top: 15px;
+                    border: 1px solid #d1d1d1;
+                }
+                input {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 20px;
+                    border: 0;
+                    background: transparent;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+                &:last-of-type{
+                    margin-bottom: 30px;
+                }
+            }    
+            .btn-signup{
+                width: 100%;
+                height: 54px;
+                margin-bottom: 10px;
+                border: none;
+                background-color: #1F8CE6;
+                color:#fff;
+                font-size: 20px;
+                font-weight: bold;
+            }
+          
+        }
+    }
+}
