@@ -34,7 +34,7 @@ const LayoutHeader = () => {
                     </span>
                     </NavLink>
                     <NavLink
-                        to="/allbooks"
+                        to="/books"
                         className="link"
                         activeClassName="active"
                     >
