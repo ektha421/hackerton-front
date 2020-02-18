@@ -81,8 +81,8 @@ const BookListItem = () => {
         <div className="list-item">
             <h2 className="title">전체목록 <i className="icon-right-open"></i></h2>
             <ul className="item-wrap clearfix">
-            {stateList.map((list, index) => (
-                    <li className="item" key={index}>
+            {stateList.map((list, id) => (
+                    <li className="item" key={id}>
                     <div className="book-img">
                         <img src={list.bImg} alt=""/>
                     </div>
