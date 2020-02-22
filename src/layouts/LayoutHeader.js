@@ -43,12 +43,12 @@ const LayoutHeader = () => {
                         </span>
                     </NavLink>
                     <NavLink
-                        to="/community"
+                        to="/addlist"
                         className="link"
                         activeClassName="active"
                     >
                         <span>
-                            <i className="icon-users"></i>COMMUNITY
+                            <i className="icon-list-add"></i>ADD
                         </span>
                     </NavLink>
                     <NavLink

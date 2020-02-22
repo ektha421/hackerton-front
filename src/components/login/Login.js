@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import '../../scss/Login.scss';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState(false);
+
+    //email 형식 검증
+    const onChangeEmail = useCallback((e) => {
+        const inputChk =  /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+
+        setEmail(e.target.value);
+        if(email.match(inputChk)){
+            setEmailError(false);
+            setEmail(e.target.value);
+        }else if(e.target.value === ''){
+            setEmailError(false);
+        }else{
+            setEmailError(true);
+        }
+    },[email]);
+
+
     return (
         <div id="login">
             <div className="wrap-login">
@@ -13,9 +32,15 @@ const Login = () => {
                 <div className="wrap-login-form">
                     <form action="">
                         <span className="input-area">
-                            <label htmlFor="id">ID</label>
-                            <input type="text" id="id" />
+                            <label htmlFor="email">E-MAIL</label>
+                            <input 
+                            type="text" 
+                            id="email"
+                            name="email"
+                            onChange={onChangeEmail}
+                            />
                         </span>
+                        {emailError && <div style={{color : 'red', textAlign:'right', padding:'5px 0'}}>이메일이 맞지 않습니다.</div>}
                         <span className="input-area">
                             <label htmlFor="password">PW</label>
                             <input type="password" id="password" />
