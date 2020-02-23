@@ -1,0 +1,48 @@
+.react-multiple-carousel__arrow::before{
+    z-index: 0;
+}
+#main{
+    .banner-wrap{
+        padding: 60px 0;
+        .banner{
+            width: 430px;
+            height: 285px;
+            border-radius: 10px;
+            margin: auto;
+            img{
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+    .new-book-wrap{
+        background: #17202e;
+        .contents{
+            min-height: 430px !important;
+            padding-top: 50px;
+            .title{
+                margin-bottom: 30px;
+                color:#fff;
+                font-size: 18px;
+                font-weight: normal;
+            }
+            .banner{
+                width: 80%;
+                color:#fff;
+                img{
+                    width: 100%;
+                    margin-bottom: 15px;
+                }
+                .name{
+                    margin-bottom: 5px;
+                    font-size: 16px;
+                }
+                .author{
+                    font-size: 14px;
+                    font-weight: normal;
+                    color:#999;
+                }
+            }
+        }
+    }
+}
