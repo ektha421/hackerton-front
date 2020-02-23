@@ -31,10 +31,7 @@ const Login = () => {
     });
 
     const onClickLoginBtn = useCallback(e => {
-        let form = new FormData();
-        form.append('email', email);
-        form.append('password', password);
-
+        //qs 는 formData 던질때 씀
         let resultLogin = axios.post(
             'http://ec2-user@ec2-13-125-53-68.ap-northeast-2.compute.amazonaws.com:8080/auth/login',
             qs.stringify({ email, password }),
