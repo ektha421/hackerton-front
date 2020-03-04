@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react';
-import '../../scss/Login.scss';
+import { Route, Redirect } from 'react-router-dom';
+import '../scss/Login.scss';
 import axios from 'axios';
 const qs = require('querystring');
 
-const Login = () => {
+const Login = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState(false);
@@ -32,17 +33,28 @@ const Login = () => {
 
     const onClickLoginBtn = useCallback(e => {
         //qs 는 formData 던질때 씀
-        let resultLogin = axios.post(
-            'http://ec2-user@ec2-13-125-53-68.ap-northeast-2.compute.amazonaws.com:8080/auth/login',
-            qs.stringify({ email, password }),
-            {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+        axios
+            .post(
+                'http://15.164.192.100:8080/auth/login',
+                qs.stringify({ email, password }),
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
                 },
-            },
-        );
-
-        console.log(resultLogin); //<--여기서 토큰꺼내서 쓰면됨
+            )
+            .then(res => {
+                console.log(res);
+                let token = res.data.token;
+                localStorage.setItem('token', token);
+                history.push('/');
+            })
+            .catch(err => {
+                console.log(err);
+                if (err.response.status !== 200) {
+                    alert('로그인이 실패하였습니다');
+                }
+            });
     });
 
     return (
