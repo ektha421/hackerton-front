@@ -1,10 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, {
+    useState,
+    useCallback
+} from 'react';
+import {
+    Route,
+    Redirect
+} from 'react-router-dom';
 import '../scss/Login.scss';
 import axios from 'axios';
 const qs = require('querystring');
 
-const Login = ({ history }) => {
+const Login = ({
+    history
+}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState(false);
@@ -32,12 +40,16 @@ const Login = ({ history }) => {
     });
 
     const onClickLoginBtn = useCallback(e => {
+        
+        // console.log('${config.apiUrl}/auth/login');
         //qs 는 formData 던질때 씀
         axios
             .post(
-                'http://15.164.192.100:8080/auth/login',
-                qs.stringify({ email, password }),
-                {
+                process.env.REACT_APP_API_URL+'/auth/login',
+                qs.stringify({
+                    email,
+                    password
+                }), {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
@@ -57,65 +69,65 @@ const Login = ({ history }) => {
             });
     });
 
-    return (
+    return ( 
         <div id="login">
-            <div className="wrap-login">
-                <h1 className="dj-logo">
-                    <a href="/"> DJBOOKS </a>
-                </h1>
-                <div className="wrap-login-form">
-                    <form>
-                        <span className="input-area">
-                            <label htmlFor="email"> E-MAIL </label>
-                            <input
-                                type="text"
-                                id="email"
-                                name="email"
-                                onChange={onChangeEmail}
-                            />
-                        </span>
-                        {emailError && (
-                            <div
-                                style={{
-                                    color: 'red',
-                                    textAlign: 'right',
-                                    padding: '5px 0',
-                                }}
-                            >
-                                이메일이 맞지 않습니다.
-                            </div>
-                        )}
-                        <span className="input-area">
-                            <label htmlFor="password"> PW </label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={password}
-                                onChange={onChangePassword}
-                            />
-                        </span>
-                        <button
-                            onClick={onClickLoginBtn}
-                            className="btn-login"
-                            type="button"
+        <div className="wrap-login">
+            <h1 className="dj-logo">
+                <a href="/"> DJBOOKS </a>
+            </h1>
+            <div className="wrap-login-form">
+                <form>
+                    <span className="input-area">
+                        <label htmlFor="email"> E-MAIL </label>
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            onChange={onChangeEmail}
+                        />
+                    </span>
+                    {emailError && (
+                        <div
+                            style={{
+                                color: 'red',
+                                textAlign: 'right',
+                                padding: '5px 0',
+                            }}
                         >
-                            로그인
-                        </button>
-                    </form>
-                    <div className="sns-login">
-                        <button> Google 로그인 </button>
-                        <button> Kakao 로그인 </button>
-                        <button> Naver 로그인 </button>
-                    </div>
+                            이메일이 맞지 않습니다.
+                        </div>
+                    )}
+                    <span className="input-area">
+                        <label htmlFor="password"> PW </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={password}
+                            onChange={onChangePassword}
+                        />
+                    </span>
+                    <button
+                        onClick={onClickLoginBtn}
+                        className="btn-login"
+                        type="button"
+                    >
+                        로그인
+                    </button>
+                </form>
+                <div className="sns-login">
+                    <button> Google 로그인 </button>
+                    <button> Kakao 로그인 </button>
+                    <button> Naver 로그인 </button>
                 </div>
-                <nav className="menu">
-                    <a href="/signup"> 회원가입 </a>
-                    <a href="#"> 아이디 찾기 </a>
-                    <a href="#"> 비밀번호 찾기 </a>
-                </nav>
             </div>
+            <nav className="menu">
+                <a href="/signup"> 회원가입 </a>
+                <a href="#"> 아이디 찾기 </a>
+                <a href="#"> 비밀번호 찾기 </a>
+            </nav>
         </div>
+    </div>
     );
 };
 
