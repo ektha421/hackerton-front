@@ -1,9 +1,9 @@
 //컬러
-$color-main: #1F8CE6;
-$color-sub: #99D1FF;
+$color-main: #5f0080;
+$color-sub: #a073c2;
 $white: #fff;
 $black: #303538;
-$grey: #ddd;
+$grey: #f7f7f7;
 $pink: #e96968;
 
 //웹폰트
@@ -13,8 +13,16 @@ $pink: #e96968;
 @import './scss/fontello/css/animation.css';
 @import './scss/fontello/css/fontello.css';
 
-//style
+//common style
 @import './scss/Reset.scss';
 @import './scss/Common.scss';
 @import './scss/Header.scss';
 @import './scss/Footer.scss';
+
+//style
+@import './scss/Home.scss';
+@import './scss/Login.scss';
+@import './scss/SignUp.scss';
+@import './scss/AddList.scss';
+@import './scss/BookList.scss';
+@import './scss/SearchResult.scss';

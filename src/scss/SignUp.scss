@@ -9,14 +9,13 @@ body,
     width: 100%;
     height: 100%;
     text-align: center;
-    vertical-align: middle;
     .wrap-signup {
-        display: table-cell;
-        .dj-logo a{
+        padding-top: 140px;
+        .dj-logo {
             display: inline-block;
             margin-bottom: 50px;
-            font-size: 40px;
-            color:#1F8CE6;
+            font-size: 25px;
+            color: $black;
             letter-spacing: -1.5px;
         }
         .wrap-signup-form {
@@ -26,16 +25,16 @@ body,
             .input-area {
                 display: block;
                 height: 55px;
-                border: 1px solid #1F8CE6;
+                border: 1px solid $color-sub;
                 + .input-area {
                     margin-top: 15px;
                     border: 1px solid #d1d1d1;
                 }
-                label{
-                    visibility:hidden;
-                    overflow:hidden;
-                    font-size:0;
-                    line-height:0
+                label {
+                    visibility: hidden;
+                    overflow: hidden;
+                    font-size: 0;
+                    line-height: 0;
                 }
                 input {
                     width: 100%;
@@ -49,21 +48,20 @@ body,
                     display: block;
                     clear: both;
                 }
-                &:last-of-type{
+                &:last-of-type {
                     margin-bottom: 30px;
                 }
-            }    
-            .btn-signup{
+            }
+            .btn-signup {
                 width: 100%;
                 height: 54px;
                 margin-bottom: 10px;
                 border: none;
-                background-color: #1F8CE6;
-                color:#fff;
+                background-color: $color-main;
+                color: #fff;
                 font-size: 20px;
                 font-weight: bold;
             }
-          
         }
     }
 }

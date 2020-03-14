@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import DefaultLayout from './layouts/LayoutContents';
+import Routes from './routes';
+import LayoutHeader from './layouts/LayoutHeader';
+import LayoutFooter from './layouts/LayoutFooter';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import './App.scss';
@@ -8,15 +10,25 @@ import './App.scss';
 function App() {
     return (
         <BrowserRouter>
+            <LayoutHeader />
             <Switch>
                 <Route path="/login" name="Login" component={Login} />
                 <Route path="/signup" name="signup" component={SignUp} />
-                <Route
-                    path="/"
-                    name="Home"
-                    render={props => <DefaultLayout {...props} />}
-                />
+                <div id="content">
+                    {Routes.map((route, idx) => {
+                        return (
+                            <Route
+                                key={idx}
+                                path={route.path}
+                                exact={route.exact}
+                                name={route.name}
+                                render={props => <route.component {...props} />}
+                            />
+                        );
+                    })}
+                </div>
             </Switch>
+            <LayoutFooter />
         </BrowserRouter>
     );
 }

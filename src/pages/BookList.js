@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import BookListItem from '../components/BookListItem';
-import '../scss/BookList.scss';
 
 const BookList = () => {
     return (

@@ -6,6 +6,8 @@
         "@amcharts/amcharts3-react": "^3.0.0",
         "@amcharts/amcharts4": "^4.7.6",
         "@fortawesome/react-fontawesome": "^0.1.7",
+        "@material-ui/core": "^4.9.5",
+        "@material-ui/lab": "^4.0.0-alpha.45",
         "amcharts3": "^3.21.15",
         "ammap3": "^3.21.15",
         "amstock3": "^3.21.15",
@@ -21,9 +23,14 @@
         "react-dom": "^16.11.0",
         "react-multi-carousel": "^2.5.2",
         "react-paginate": "^6.3.2",
+        "react-redux": "^7.2.0",
         "react-router-dom": "^5.1.2",
         "react-scripts": "^3.3.1",
         "react-tooltip": "^3.11.1",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0",
         "sass-loader": "^8.0.0"
     },
     "scripts": {

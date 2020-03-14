@@ -1,5 +1,4 @@
 import React from 'react';
-import '../scss/SearchResult.scss';
 
 const SearchResultItem = () => {
     return (

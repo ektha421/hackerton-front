@@ -9,15 +9,6 @@ const LayoutHeader = ({ logged, onLogout }) => {
                     <h1 className="header-logo">
                         <a href="/">DJBOOKS</a>
                     </h1>
-                    <div className="header-search">
-                        <div className="input-box">
-                            <i className="icon-search"></i>
-                            <input
-                                type="text"
-                                placeholder="제목, 저자, 출판사 검색"
-                            />
-                        </div>
-                    </div>
                     <div className="header-btn">
                         {logged ? (
                             <span className="login">이름</span>
@@ -41,10 +32,10 @@ const LayoutHeader = ({ logged, onLogout }) => {
                         )}
                     </div>
                 </div>
-                <div className="header-bottom">
+                <div className="header-bottom clearfix">
                     <nav className="menu">
                         <NavLink
-                            to="/"
+                            to="/home"
                             className="link"
                             activeClassName="active"
                         >
@@ -80,6 +71,17 @@ const LayoutHeader = ({ logged, onLogout }) => {
                             </span>
                         </NavLink>
                     </nav>
+                    <div className="header-search">
+                        <div className="input-box">
+                            <input
+                                type="text"
+                                placeholder="제목, 저자, 출판사 검색"
+                            />
+                            <button type="submit" className="btn-search">
+                                <i className="icon-search"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>

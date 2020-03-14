@@ -1,41 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Rating from '@material-ui/lab/Rating';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import '../scss/Home.scss';
 
 const Home = () => {
+    const [value, setValue] = useState(2);
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 3000, min: 1400 },
             items: 4,
-            slidesToSlide: 1,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
             slidesToSlide: 1,
         },
     };
     const responsiveNew = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 3000, min: 1100 },
             items: 6,
             slidesToSlide: 6,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1,
         },
     };
 
@@ -91,7 +73,11 @@ const Home = () => {
             </div>
             <div className="new-book-wrap">
                 <div className="contents">
-                    <h2 className="title">이달의 신작!</h2>
+                    <h2 className="title">
+                        <Link to="/">
+                            이달의 신작<i className="icon-right-open-big"></i>
+                        </Link>
+                    </h2>
                     <Carousel
                         swipeable={true}
                         draggable={true}
@@ -106,39 +92,98 @@ const Home = () => {
                         itemClass="carousel-item-padding-40-px"
                     >
                         <div className="banner">
-                            <img src="/images/img_book_1.jpg" alt="book_1" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_1.jpg"
+                                    alt="book_1"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                         <div className="banner">
-                            <img src="/images/img_book_2.jpg" alt="book_2" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_2.jpg"
+                                    alt="book_2"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                         <div className="banner">
-                            <img src="/images/img_book_3.jpg" alt="book_3" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_3.jpg"
+                                    alt="book_3"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                         <div className="banner">
-                            <img src="/images/img_book_4.jpg" alt="book_4" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_4.jpg"
+                                    alt="book_4"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                         <div className="banner">
-                            <img src="/images/img_book_5.jpg" alt="book_5" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_5.jpg"
+                                    alt="book_5"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                         <div className="banner">
-                            <img src="/images/img_book_6.jpg" alt="book_6" />
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_6.jpg"
+                                    alt="book_6"
+                                />
+                            </div>
                             <h3 className="name">울트라러닝</h3>
                             <h4 className="author">스콧영</h4>
                         </div>
                     </Carousel>
                 </div>
             </div>
-            <div className="contents"></div>
+            <div className="best-book-wrap">
+                <div className="contents">
+                    <h2 className="title">
+                        <Link to="/">
+                            베스트셀러<i className="icon-right-open-big"></i>
+                        </Link>
+                    </h2>
+                    <div className="book-list">
+                        <div className="item">
+                            <div className="img">
+                                <img
+                                    src="/images/img_book_1.jpg"
+                                    alt="book_1"
+                                />
+                            </div>
+                            <div className="txt-box">
+                                <h3 className="name">
+                                    날씨가 좋으면 찾아가겠어요
+                                </h3>
+                                <h4 className="author">이도우</h4>
+                                <Rating
+                                    name="read-only"
+                                    value={value}
+                                    readOnly
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
