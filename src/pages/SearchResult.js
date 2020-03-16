@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchResultItem from '../components/SearchResultItem';
-import '../scss/SearchResult.scss';
 
 const SearchResult = () => {
     return (

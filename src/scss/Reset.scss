@@ -533,7 +533,10 @@ textarea {
     }
 }
 
+body,
+html {
+    min-width: 1400px;
+}
 #content {
-    padding-top: 110px;
     padding-bottom: 70px;
 }

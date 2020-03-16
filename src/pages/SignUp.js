@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import '../scss/SignUp.scss';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -67,7 +66,7 @@ const SignUp = () => {
         <div id="signUp">
             <div className="wrap-signup">
                 <h1 className="dj-logo">
-                    <a href="/">DJBOOKS</a>
+                    <a href="/">회원가입</a>
                 </h1>
                 <div className="wrap-signup-form">
                     <form action="" onSubmit={onSubmit}>
