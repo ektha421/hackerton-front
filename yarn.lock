@@ -10676,10 +10676,10 @@ react-moment-proptypes@^1.6.0:
   dependencies:
     moment ">=1.6.0"
 
-react-multi-carousel@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.5.2.tgz#da6c0d68b9f264e56e63386cbbe66e174b13e4c4"
-  integrity sha512-dGDNAA1MmLZV+nvxvF8T2GlQnvv726jBdC/hLT7GD44PaL1ONE5nkKPrS/SeYvf5TLVxCUYzRyY7BMpUuQtXpw==
+react-multi-carousel@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.5.3.tgz#c7268d17099a8ad483eb11d6ad7243716ee3158c"
+  integrity sha512-unjDa96C4W7CFmBNjhO+z1J2r5tphaVLxyhdBFP3ucQ1b6+jW6BHjX1p5UBZ9tBKDVtomlgHYyH7w2HZ6Yvyrg==
 
 react-onclickoutside@^6.9.0:
   version "6.9.0"
