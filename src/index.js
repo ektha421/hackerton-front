@@ -11,10 +11,14 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import ReduxThunk from "redux-thunk";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk, logger))
-); 
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(applyMiddleware(ReduxThunk, logger))
+// ); 
+
+import { store } from './_helpers';
+import { configureFakeBackend } from './_helpers';
+configureFakeBackend();
 
 ReactDOM.render(
     <Provider store={store}>
