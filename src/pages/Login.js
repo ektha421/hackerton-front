@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userActions } from '../_actions';
 
-function Login() {
+function Login( ) {
     const [inputs, setInputs] = useState({
         username: '',
         password: ''

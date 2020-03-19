@@ -17,8 +17,8 @@ import ReduxThunk from "redux-thunk";
 // ); 
 
 import { store } from './_helpers';
-import { configureFakeBackend } from './_helpers';
-configureFakeBackend();
+// import { configureFakeBackend } from './_helpers';
+// configureFakeBackend();
 
 ReactDOM.render(
     <Provider store={store}>

@@ -10,17 +10,20 @@ export const userService = {
     delete: _delete
 };
 
-function login(username, password) {
+function login(email, password) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ email, password })
     };
 
-    return fetch(`/users/authenticate`, requestOptions)
+    
+    return fetch(process.env.REACT_APP_API_URL+`/auth/login`, requestOptions)
         .then(handleResponse)
-        .then(user => {
+        .then(({user, token}) => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
+            user.token = token;
+            console.log('user!!!!',user);
             localStorage.setItem('user', JSON.stringify(user));
 
             return user;
@@ -38,7 +41,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`/users`, requestOptions).then(handleResponse);
+    return fetch(process.env.REACT_APP_API_URL+`/users`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -47,7 +50,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(process.env.REACT_APP_API_URL+`/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function register(user) {
@@ -57,7 +60,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`/users/register`, requestOptions).then(handleResponse);
+    return fetch(process.env.REACT_APP_API_URL+`/users/register`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -67,7 +70,8 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`/users/${user.id}`, requestOptions).then(handleResponse);;
+    return fetch(process.env.REACT_APP_API_URL+`/users/${user.id}`,
+     requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -77,7 +81,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(process.env.REACT_APP_API_URL+`/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

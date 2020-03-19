@@ -11,6 +11,8 @@ export function authentication(state = initialState, action) {
         user: action.user
       };
     case userConstants.LOGIN_SUCCESS:
+
+      console.log("Login SUCCESS!!!");
       return {
         loggedIn: true,
         user: action.user
