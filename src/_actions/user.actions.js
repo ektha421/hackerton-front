@@ -2,7 +2,6 @@ import { userConstants } from '../_constants';
 import { userService } from '../_services';
 import { alertActions } from './';
 import { history } from '../_helpers';
-// import { Redirect } from 'react-router-dom'
 
 
 export const userActions = {
@@ -21,19 +20,7 @@ function login(email, password) {
             .then(
                 user => { 
                     dispatch(success(user));
-
-                    console.log('history push before ');
                     history.push("/");
-                    // console.log(history);
-                    // this.context.history.push('/home');
-                    
-                    // history.replace('/');
-                    // console.log(history);
-                    // history.getAll()
-                    // return history.push("/");
-                    // this.props.history.push("/");
-
-                    // history.push('/home');
                 },
                 error => {
                     dispatch(failure(error.toString()));

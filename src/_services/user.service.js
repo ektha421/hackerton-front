@@ -54,13 +54,15 @@ function getById(id) {
 }
 
 function register(user) {
+
+    console.log('user!!!',user);
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
-    return fetch(process.env.REACT_APP_API_URL+`/users/register`, requestOptions).then(handleResponse);
+    return fetch(process.env.REACT_APP_API_URL+`/auth/sign-up`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
