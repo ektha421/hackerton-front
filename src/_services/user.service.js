@@ -21,7 +21,6 @@ function login(email, password) {
     return fetch(process.env.REACT_APP_API_URL+`/auth/login`, requestOptions)
         .then(handleResponse)
         .then(({user, token}) => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
             user.token = token;
             console.log('user!!!!',user);
             localStorage.setItem('user', JSON.stringify(user));
@@ -31,7 +30,6 @@ function login(email, password) {
 }
 
 function logout() {
-    // remove user from local storage to log user out
     localStorage.removeItem('user');
 }
 

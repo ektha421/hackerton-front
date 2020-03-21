@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import { userActions } from '../_actions';
 
 function Login( ) {
@@ -11,7 +10,6 @@ function Login( ) {
     });
     const [submitted, setSubmitted] = useState(false);
     const { email, password } = inputs;
-    const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
 
     // reset login status
@@ -34,31 +32,40 @@ function Login( ) {
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Login</h2>
-            <form name="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" value={email} onChange={handleChange} className={'form-control' + (submitted && !email ? ' is-invalid' : '')} />
-                    {submitted && !email &&
-                        <div className="invalid-feedback">email is required</div>
-                    }
+        <div id="login">
+            <div className="wrap-login">
+                <h1 className="dj-logo">로그인</h1>
+                <div className="wrap-login-form">
+                    <form name="form" onSubmit={handleSubmit}>
+                        <span className="input-area">
+                            <label htmlFor="email"> E-MAIL </label>
+                            <input type="text" name="email" value={email} onChange={handleChange} className={(submitted && !email ? ' is-invalid' : '')} />
+                        </span>
+                        {submitted && !email &&
+                            <span className="error-msg">이메일은 필수입니다.</span>
+                        }
+                        <span className="input-area">
+                            <label htmlFor="password"> PW </label>
+                            <input type="password" name="password" value={password} onChange={handleChange} className={(submitted && !password ? ' is-invalid' : '')} />
+                        </span>
+                        {submitted && !password &&
+                            <span className="error-msg">비밀번호는 필수입니다.</span>
+                        }
+                        <button
+                            className="btn-login"
+                            type="button"
+                            onClick={handleSubmit}
+                        >
+                            로그인
+                        </button>
+                    </form>
                 </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={password} onChange={handleChange} className={'form-control' + (submitted && !password ? ' is-invalid' : '')} />
-                    {submitted && !password &&
-                        <div className="invalid-feedback">Password is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
-                        {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Login
-                    </button>
-                    <Link to="/signup" className="btn btn-link">Signup</Link>
-                </div>
-            </form>
+                <nav className="menu">
+                    <Link to="/signup"> 회원가입 </Link>
+                    <Link to="#"> 아이디 찾기 </Link>
+                    <Link to="#"> 비밀번호 찾기 </Link>
+                </nav>
+            </div>
         </div>
     );
 }

@@ -14,7 +14,6 @@ function SignUp() {
     const registering = useSelector(state => state.registration.registering);
     const dispatch = useDispatch();
 
-    // reset login status
     useEffect(() => {
         dispatch(userActions.logout());
     }, []);
@@ -34,39 +33,43 @@ function SignUp() {
     }
 
     return (
-        <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
-            <form name="form" onSubmit={handleSubmit}>
-              
-                <div className="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" value={user.name} onChange={handleChange} className={'form-control' + (submitted && !user.name ? ' is-invalid' : '')} />
-                    {submitted && !user.name &&
-                        <div className="invalid-feedback">Name is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" value={user.email} onChange={handleChange} className={'form-control' + (submitted && !user.email ? ' is-invalid' : '')} />
-                    {submitted && !user.email &&
-                        <div className="invalid-feedback">email is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
-                    {submitted && !user.password &&
-                        <div className="invalid-feedback">Password is required</div>
-                    }
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-primary">
+        <div id="signUp">
+            <div className="wrap-signup">
+                <h1 className="dj-logo">회원가입</h1>
+                <div className="wrap-signup-form">
+                    <form name="form" onSubmit={handleSubmit}>
+                        <span className="input-area">
+                            <label htmlFor="email">E-MAIL</label>
+                            <input type="text" name="email" value={user.email} onChange={handleChange} className={(submitted && !user.email ? ' is-invalid' : '')} />
+                        </span>
+                        {submitted && !user.email &&
+                            <span className="error-msg">이메일은 필수입니다.</span>
+                        }
+                        <span className="input-area confirm">
+                            <label htmlFor="password">PW</label>
+                            <input type="password" name="password" value={user.password} onChange={handleChange} className={(submitted && !user.password ? ' is-invalid' : '')} />
+                        </span>
+                        {submitted && !user.password &&
+                            <span className="error-msg">비밀번호는 필수입니다.</span>
+                        }
+                        <span className="input-area">
+                            <label htmlFor="name">NAME</label>
+                            <input type="text" name="name" value={user.name} onChange={handleChange} className={(submitted && !user.name ? ' is-invalid' : '')} />
+                        </span>
+                        {submitted && !user.name &&
+                            <span className="error-msg">이름은 필수입니다.</span>
+                        }
+                        <button 
+                            type="submit" 
+                            className="btn-signup"
+                            onClick={handleSubmit}
+                            >
                         {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
-                    </button>
-                    <Link to="/login" className="btn btn-link">Cancel</Link>
+                            회원가입하기
+                        </button>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

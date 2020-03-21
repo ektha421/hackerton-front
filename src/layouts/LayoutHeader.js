@@ -1,7 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { userActions } from '../_actions';
+import { history } from '../_helpers';
 
-const LayoutHeader = ({ logged, onLogout }) => {
+const LayoutHeader = () => {
+    const loggedIn = useSelector(state => state.authentication.loggedIn);
+    const userInfo = useSelector(state => state.authentication.user);
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(userActions.logout());
+        history.push("/");
+    }
+
     return (
         <header id="header">
             <div className="inner">
@@ -10,14 +22,14 @@ const LayoutHeader = ({ logged, onLogout }) => {
                         <a href="/">DJBOOKS</a>
                     </h1>
                     <div className="header-btn">
-                        {logged ? (
-                            <span className="login">이름</span>
+                        {loggedIn ? (
+                            <span className="login">{userInfo.name} 님</span>
                         ) : (
                             <NavLink to="/login" className="login">
                                 로그인
                             </NavLink>
                         )}
-                        {logged ? (
+                        {loggedIn ? (
                             <NavLink
                                 to="/"
                                 className="login"

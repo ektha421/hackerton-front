@@ -29,17 +29,26 @@ body,
                 + .input-area {
                     margin-top: 15px;
                     border: 1px solid #d1d1d1;
+                    label {
+                        background-color: #d1d1d1;
+                    }
                 }
                 label {
-                    visibility: hidden;
-                    overflow: hidden;
-                    font-size: 0;
-                    line-height: 0;
+                    float: left;
+                    width: 70px;
+                    height: 55px;
+                    background-color: $color-sub;
+                    line-height: 55px;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-top: -1px;
                 }
                 input {
-                    width: 100%;
+                    float: left;
+                    width: 363px;
                     height: 100%;
-                    padding: 0 20px;
+                    padding: 0 10px;
                     border: 0;
                     background: transparent;
                 }
@@ -49,7 +58,7 @@ body,
                     clear: both;
                 }
                 &:last-of-type {
-                    margin-bottom: 30px;
+                    margin-bottom: 20px;
                 }
             }
             .btn-signup {
