@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { userActions } from '../_actions';
-import { history } from '../_helpers';
+import { userActions } from '../../_actions';
+import { history } from '../../_helpers';
 
 const LayoutHeader = () => {
     const loggedIn = useSelector(state => state.authentication.loggedIn);

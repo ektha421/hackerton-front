@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchResultItem from '../components/SearchResultItem';
 
-const SearchResult = () => {
+const SearchResultPage = () => {
     return (
         <div className="contents">
             <h3 className="result-title">
@@ -18,4 +18,4 @@ const SearchResult = () => {
     );
 };
 
-export default SearchResult;
+export default SearchResultPage;

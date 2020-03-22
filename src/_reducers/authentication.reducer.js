@@ -11,7 +11,6 @@ export function authentication(state = initialState, action) {
         user: action.user
       };
     case userConstants.LOGIN_SUCCESS:
-      alert(user.name + '안녕하세요.')
       return {
         loggedIn: true,
         user: action.user

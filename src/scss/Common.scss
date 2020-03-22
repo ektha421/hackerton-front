@@ -222,30 +222,6 @@
     }
 }
 
-// 별점
-.star-box {
-    padding: 0 5px;
-    margin-top: 10px;
-    .star {
-        position: relative;
-        display: block;
-        width: 100px;
-        height: 20px;
-        background: url(/images/star_off.png) repeat-x;
-        &:before {
-            overflow: hidden;
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            // 별점 등급 조절 width
-            width: 90px;
-            height: 20px;
-            background: url(/images/star_on.png) repeat-x;
-        }
-    }
-}
-
 // 에러 메시지
 .error-msg {
     display: block;

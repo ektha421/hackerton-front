@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddList = () => {
+const AddListPage = () => {
     return (
         <div className="contents">
             <div id="AddList">
@@ -59,4 +59,4 @@ const AddList = () => {
     );
 };
 
-export default AddList;
+export default AddListPage;
