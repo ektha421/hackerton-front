@@ -6,6 +6,7 @@ import SearchResultPage from './pages/SearchResultPage';
 
 const routes = [
     { path: '/', name: '홈', component: HomePage, exact: true },
+    { path: '/home', name: '홈', component: HomePage },
     { path: '/books', name: '책리스트', component: BookListPage },
     { path: '/addlist', name: '책등록', component: AddListPage },
     { path: '/mypage', name: '마이페이지', component: MyPage },

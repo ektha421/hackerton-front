@@ -162,23 +162,64 @@ const HomePage = () => {
                         </Link>
                     </h2>
                     <div className="book-list">
-                        <div className="item">
-                            <div className="img">
-                                <img
-                                    src="/images/img_book_1.jpg"
-                                    alt="book_1"
-                                />
+                        <div className="item-box">
+                            <div className="item">
+                                <div className="img">
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
                             </div>
-                            <div className="txt-box">
-                                <h3 className="name">
-                                    날씨가 좋으면 찾아가겠어요
-                                </h3>
-                                <h4 className="author">이도우</h4>
-                                <Rating
-                                    name="read-only"
-                                    value={value}
-                                    readOnly
-                                />
+                            <div className="item">
+                                <div className="img">
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

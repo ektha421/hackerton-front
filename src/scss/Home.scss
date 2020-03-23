@@ -56,7 +56,75 @@
                 .author {
                     font-size: 14px;
                     font-weight: normal;
-                    color: #666;
+                    color: #999;
+                }
+            }
+        }
+    }
+    .best-book-wrap {
+        .contents {
+            min-height: 0;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            .title {
+                margin-bottom: 40px;
+                color: $black;
+                font-size: 25px;
+                font-weight: 500;
+                text-align: center;
+                i {
+                    vertical-align: top;
+                }
+            }
+            .book-list {
+                .item-box {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    width: 100%;
+                    .item {
+                        flex: 1;
+                        width: 33%;
+                        height: 140px;
+                        .img {
+                            position: relative;
+                            display: inline-block;
+                            width: 90px;
+                            margin-right: 20px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .txt-box {
+                            display: inline-block;
+                            width: 250px;
+                            padding: 40px 0;
+                            border-bottom: 1px solid #dcdcdc;
+                            box-sizing: border-box;
+                            .name {
+                                padding-right: 15px;
+                                font-weight: 700;
+                                line-height: 1.33em;
+                                color: $black;
+                                max-height: 2.7em;
+                                margin-bottom: 10px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: block;
+                                white-space: nowrap;
+                                font-size: 15px;
+                                box-sizing: border-box;
+                            }
+                            .author {
+                                margin-bottom: 10px;
+                                color: #999;
+                            }
+                            .MuiSvgIcon-root {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
                 }
             }
         }
