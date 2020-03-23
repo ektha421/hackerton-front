@@ -165,6 +165,7 @@ const HomePage = () => {
                         <div className="item-box">
                             <div className="item">
                                 <div className="img">
+                                    <span className="rank">1</span>
                                     <img
                                         src="/images/img_book_1.jpg"
                                         alt="book_1"
@@ -184,6 +185,7 @@ const HomePage = () => {
                             </div>
                             <div className="item">
                                 <div className="img">
+                                    <span className="rank">2</span>
                                     <img
                                         src="/images/img_book_1.jpg"
                                         alt="book_1"
@@ -203,6 +205,133 @@ const HomePage = () => {
                             </div>
                             <div className="item">
                                 <div className="img">
+                                    <span className="rank">3</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">4</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">5</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">6</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">7</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">8</span>
+                                    <img
+                                        src="/images/img_book_1.jpg"
+                                        alt="book_1"
+                                    />
+                                </div>
+                                <div className="txt-box">
+                                    <h3 className="name">
+                                        날씨가 좋으면 찾아가겠어요 날씨가 좋으면
+                                        찾아가겠어요날씨가 좋으면 찾아가겠어요
+                                    </h3>
+                                    <h4 className="author">이도우</h4>
+                                    <Rating
+                                        name="read-only"
+                                        value={value}
+                                        readOnly
+                                    />
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div className="img">
+                                    <span className="rank">9</span>
                                     <img
                                         src="/images/img_book_1.jpg"
                                         alt="book_1"

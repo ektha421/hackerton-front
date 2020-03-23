@@ -19,8 +19,8 @@
         background: #f7f7f7;
         .contents {
             min-height: 0;
-            padding-top: 60px;
-            padding-bottom: 60px;
+            padding-top: 100px;
+            padding-bottom: 100px;
             .title {
                 margin-bottom: 40px;
                 color: $black;
@@ -64,8 +64,9 @@
     .best-book-wrap {
         .contents {
             min-height: 0;
-            padding-top: 60px;
+            padding-top: 100px;
             padding-bottom: 60px;
+            text-align: center;
             .title {
                 margin-bottom: 40px;
                 color: $black;
@@ -83,24 +84,38 @@
                     flex-direction: row;
                     width: 100%;
                     .item {
-                        flex: 1;
                         width: 33%;
-                        height: 140px;
+                        margin: auto;
                         .img {
                             position: relative;
                             display: inline-block;
-                            width: 90px;
+                            width: 100px;
                             margin-right: 20px;
+                            .rank{
+                                position: absolute;
+                                width: 34px;
+                                height: 34px;
+                                line-height: 30px;
+                                top: -10px;
+                                left: -10px;
+                                background: $color-sub;
+                                border-radius: 50%;
+                                text-align: center;
+                                color:$white;
+                                box-sizing: border-box;
+                            }
                             img {
                                 width: 100%;
+                                box-shadow: 1px 1px 3px 1px #dcdcdc;
                             }
                         }
                         .txt-box {
                             display: inline-block;
                             width: 250px;
-                            padding: 40px 0;
+                            padding: 50px 0;
                             border-bottom: 1px solid #dcdcdc;
                             box-sizing: border-box;
+                            text-align: left;
                             .name {
                                 padding-right: 15px;
                                 font-weight: 700;
@@ -123,6 +138,9 @@
                                 width: 15px;
                                 height: 15px;
                             }
+                        }
+                        &:nth-of-type(7) .txt-box, &:nth-of-type(8) .txt-box, &:nth-of-type(9) .txt-box{
+                            border-bottom: 0;
                         }
                     }
                 }

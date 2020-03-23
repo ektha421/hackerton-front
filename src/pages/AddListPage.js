@@ -8,6 +8,7 @@ const AddListPage = () => {
                     <h1 className="title">Add Books</h1>
                     <div className="wrap-add-form">
                         <form action="">
+                        {/* 
                             <span className="input-area">
                                 <select name="category" id="category">
                                     <option value="category_d">
@@ -19,6 +20,7 @@ const AddListPage = () => {
                                 </select>
                                 <i className="icon-down-open"></i>
                             </span>
+                        */}
                             <span className="input-area">
                                 <input
                                     type="text"

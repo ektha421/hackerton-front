@@ -88,6 +88,9 @@
                 &:hover {
                     color: $color-main;
                 }
+                &:focus{
+                    outline: none;
+                }
                 &:first-of-type {
                     padding-left: 0;
                 }
