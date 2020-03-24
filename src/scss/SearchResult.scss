@@ -1,72 +1,83 @@
 // ** SearchResult
-.result-title{
+.result-title {
     padding-bottom: 15px;
     border-bottom: 1px solid #d6e3f0;
     font-size: 18px;
     font-weight: normal;
-    span{
+    span {
         display: contents;
         font-weight: bold;
     }
 }
-.sort-box{
+.sort-box {
     padding: 15px 0;
-    a{
+    a {
         font-size: 12px;
         font-weight: bold;
-        color:#808991;
-        &:after{
-            content:'|';
-            display:inline-block;
+        color: #808991;
+        &:after {
+            content: '|';
+            display: inline-block;
             padding: 0 10px;
             color: #e6e8eb;
         }
-        &:last-of-type:after{
+        &:last-of-type:after {
             display: none;
         }
     }
 }
 
 // ** SearchResultItem
-.search-item{
-    width: 80%;
-   
-    .item-wrap{
-        .item{
+.search-item {
+    width: 100%;
+
+    .item-wrap {
+        .item {
             display: flex;
             flex-direction: row;
-            padding: 30px 0;
+            padding-top: 30px;
             border-bottom: 1px solid #dfdfdf;
-            .book-img{
+            .book-img {
                 display: table-cell;
                 width: 15%;
                 margin-right: 3%;
-                img{
+                img {
                     width: 100%;
                 }
             }
-            .book-info{
+            .book-info {
                 width: 82%;
-                .book-title{
+                .book-title {
                     margin-bottom: 10px;
                     font-size: 16px;
                     line-height: 1.5;
-                    color:#333;
+                    color: #333;
                 }
-                .book-sub{
+                .book-sub {
                     font-size: 13px;
-                    color:#666;
+                    color: #666;
                 }
-                .book-desc{
-                    height: 100px;
+                .star-box {
+                    margin: 10px 0;
+                    .review {
+                        margin-left: 10px;
+                        font-size: 13px;
+                        color: #666;
+                    }
+                }
+                .book-desc {
+                    height: 160px;
                     margin-top: 15px;
                     font-size: 13px;
-                    color:#666;
+                    color: #666;
                     line-height: 1.5;
                 }
-                .star-box{
+                .star-box {
                     padding: 0;
                 }
+            }
+            &:last-of-type {
+                border-bottom: 0;
             }
         }
     }

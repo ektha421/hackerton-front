@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { history } from './_helpers';
@@ -20,12 +20,12 @@ function App() {
     }, [dispatch]);
     return (
         <Router history={history}>
-            <LayoutHeader/>
+            <LayoutHeader />
             <Switch>
                 <Route path="/login" name="Login" component={LoginPage} />
                 <Route path="/signup" name="signup" component={SignUpPage} />
                 <div id="content">
-                <Redirect from="*" to="/" />
+                    {/* <Redirect from="*" to="/" /> */}
 
                     {Routes.map((route, idx) => {
                         return (

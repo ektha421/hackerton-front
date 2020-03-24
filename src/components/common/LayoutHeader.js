@@ -11,8 +11,8 @@ const LayoutHeader = () => {
 
     const onLogout = () => {
         dispatch(userActions.logout());
-        history.push("/");
-    }
+        history.push('/login');
+    };
 
     return (
         <header id="header">

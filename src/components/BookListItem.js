@@ -34,7 +34,7 @@ const BookListItem = () => {
                             value={list.reviewScore}
                             readOnly
                         />
-                        <span className="count"> {list.reviewCnt}</span>
+                        <span className="review"> {list.reviewCnt}명</span>
                     </li>
                 ))}
             </ul>

@@ -3,7 +3,7 @@ import SearchResultItem from '../components/SearchResultItem';
 
 const SearchResultPage = () => {
     return (
-        <div className="contents">
+        <div className="contents" style={{ width: '1024px' }}>
             <h3 className="result-title">
                 <span>'곰돌이푸'</span> 도서 검색 결과 (1)
             </h3>
