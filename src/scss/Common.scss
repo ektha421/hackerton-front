@@ -9,31 +9,6 @@
     margin: 0 auto;
     padding-top: 100px;
 }
-.wrap-title {
-    position: relative;
-    display: block;
-    margin: 20px 0 40px;
-    text-align: center;
-    .title {
-        font-size: 30px;
-        font-weight: 600;
-        &.on {
-            color: #00d39c;
-        }
-    }
-    .desc {
-        margin-top: 10px;
-        em {
-            color: $color-main;
-            vertical-align: top;
-        }
-    }
-    .tab-menu {
-        position: absolute;
-        top: 0;
-        right: 70px;
-    }
-}
 
 //정렬
 .fl-left {
@@ -87,7 +62,7 @@
                 height: 17px;
                 text-align: center;
                 background: $white;
-                border: 1px solid #dedfdf;
+                border: 1px solid $grey;
                 border-radius: 100%;
             }
         }
