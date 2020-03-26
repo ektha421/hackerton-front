@@ -60,6 +60,11 @@ const Login = ({
                             로그인
                         </button>
                     </form>
+                    <div className="sns-login">
+                        <button> Google 로그인 </button>
+                        <button> Kakao 로그인 </button>
+                        <button> Naver 로그인 </button>
+                    </div>
                 </div>
                 <nav className="menu">
                     <Link to="/signup"> 회원가입 </Link>
