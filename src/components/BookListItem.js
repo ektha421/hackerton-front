@@ -1,21 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
 import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
 
 const BookListItem = () => {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
+    let [view, setView] = useState({});
+    let limit = 12;
+    let page = 1;
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await axios.get(
-                process.env.REACT_APP_API_URL + `/books?page=1`,
-            );
-            setData(response.data.rows);
-            console.log(response.data);
-        }
-        fetchData();
-    }, []);
+        getDataFromApi();
+    }, [getDataFromApi, limit, page]);
+
+    const onPageChange = data => {
+        page = data.selected + 1;
+        getDataFromApi(page);
+    };
+
+    const getDataFromApi = useCallback(
+        page => {
+            axios
+                .get(process.env.REACT_APP_API_URL + '/books', {
+                    params: {
+                        page: page,
+                        limit: limit,
+                    },
+                })
+                .then(res => {
+                    setData(res.data.rows);
+                    setView(res.data);
+                    console.log(res.data);
+                });
+        },
+        [limit],
+    );
 
     return (
         <div id="bookList">
@@ -45,11 +64,11 @@ const BookListItem = () => {
                         nextLabel={'>'}
                         breakLabel={'...'}
                         breakClassName={'break-me'}
-                        pageCount={data.count}
-                        current={data.currentPage}
+                        pageCount={view.count / limit}
+                        current={view.currentPage}
                         marginPagesDisplayed={2}
                         pageRangeDisplayed={5}
-                        // onPageChange={this.handlePageClick}
+                        onPageChange={onPageChange}
                         containerClassName={'pagination'}
                         subContainerClassName={'pages pagination'}
                         activeClassName={'active'}
