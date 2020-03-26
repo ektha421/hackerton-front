@@ -9,7 +9,7 @@ const BookListItem = () => {
     let limit = 12;
     let page = 1;
 
-    const getDataFromApi = useCallback(
+    const getListApi = useCallback(
         page => {
             axios
                 .get(process.env.REACT_APP_API_URL + '/books', {
@@ -21,19 +21,18 @@ const BookListItem = () => {
                 .then(res => {
                     setData(res.data.rows);
                     setView(res.data);
-                    console.log(res.data);
                 });
         },
         [limit],
     );
 
     useEffect(() => {
-        getDataFromApi();
-    }, [getDataFromApi, limit, page]);
+        getListApi();
+    }, [getListApi, limit, page]);
 
     const onPageChange = data => {
         page = data.selected + 1;
-        getDataFromApi(page);
+        getListApi(page);
     };
 
     return (

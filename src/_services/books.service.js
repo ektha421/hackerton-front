@@ -1,7 +1,5 @@
 export const booksService = {
-    getList
-}
+    getList,
+};
 
-function getList(){
-    
-}
+function getList() {}

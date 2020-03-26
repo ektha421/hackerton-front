@@ -11,7 +11,6 @@ const LayoutHeader = () => {
 
     const onLogout = () => {
         dispatch(userActions.logout());
-        history.push('/login');
     };
 
     return (
@@ -31,7 +30,7 @@ const LayoutHeader = () => {
                         )}
                         {loggedIn ? (
                             <NavLink
-                                to="/"
+                                to="/login"
                                 className="login"
                                 onClick={onLogout}
                             >
