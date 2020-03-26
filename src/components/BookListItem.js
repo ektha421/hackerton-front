@@ -9,15 +9,6 @@ const BookListItem = () => {
     let limit = 12;
     let page = 1;
 
-    useEffect(() => {
-        getDataFromApi();
-    }, [getDataFromApi, limit, page]);
-
-    const onPageChange = data => {
-        page = data.selected + 1;
-        getDataFromApi(page);
-    };
-
     const getDataFromApi = useCallback(
         page => {
             axios
@@ -35,6 +26,15 @@ const BookListItem = () => {
         },
         [limit],
     );
+
+    useEffect(() => {
+        getDataFromApi();
+    }, [getDataFromApi, limit, page]);
+
+    const onPageChange = data => {
+        page = data.selected + 1;
+        getDataFromApi(page);
+    };
 
     return (
         <div id="bookList">

@@ -6,22 +6,22 @@ const Login = ({
     email,
     password,
     loggingIn,
-    handleChange,
-    handleSubmit,
+    onChange,
+    onSubmit,
 }) => {
     return (
         <div id="login">
             <div className="login-wrap">
                 <h1 className="dj-logo">로그인</h1>
                 <div className="login-form-wrap">
-                    <form name="form" onSubmit={handleSubmit}>
+                    <form name="form" onSubmit={onSubmit}>
                         <span className="input-area">
                             <label htmlFor="email"> E-MAIL </label>
                             <input
                                 type="text"
                                 name="email"
                                 value={email}
-                                onChange={handleChange}
+                                onChange={onChange}
                                 className={
                                     submitted && !email ? ' is-invalid' : ''
                                 }
@@ -38,7 +38,7 @@ const Login = ({
                                 type="password"
                                 name="password"
                                 value={password}
-                                onChange={handleChange}
+                                onChange={onChange}
                                 className={
                                     submitted && !password ? ' is-invalid' : ''
                                 }
@@ -52,7 +52,7 @@ const Login = ({
                         <button
                             className="btn-login"
                             type="button"
-                            onClick={handleSubmit}
+                            onClick={onSubmit}
                         >
                             {loggingIn && (
                                 <span className="spinner-border spinner-border-sm mr-1"></span>

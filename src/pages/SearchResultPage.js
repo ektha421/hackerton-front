@@ -9,10 +9,10 @@ const SearchResultPage = () => {
                     <span>'곰돌이푸'</span> 도서 검색 결과 (1)
                 </h3>
                 <div className="sort-box">
-                    <a href="#">인기순</a>
-                    <a href="#">최신순</a>
-                    <a href="#">평점순</a>
-                    <a href="#">리뷰 많은순</a>
+                    <span>인기순</span>
+                    <span>최신순</span>
+                    <span>평점순</span>
+                    <span>리뷰 많은순</span>
                 </div>
                 <SearchResultItem />
             </div>

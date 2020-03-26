@@ -1,25 +1,19 @@
 import React from 'react';
 
-const SignUp = ({
-    user,
-    submitted,
-    registering,
-    handleChange,
-    handleSubmit,
-}) => {
+const SignUp = ({ user, submitted, registering, onChange, onSubmit }) => {
     return (
         <div id="signUp">
             <div className="signup-wrap">
                 <h1 className="dj-logo">회원가입</h1>
                 <div className="signup-form-wrap">
-                    <form name="form" onSubmit={handleSubmit}>
+                    <form name="form" onSubmit={onSubmit}>
                         <span className="input-area">
                             <label htmlFor="email">E-MAIL</label>
                             <input
                                 type="text"
                                 name="email"
                                 value={user.email}
-                                onChange={handleChange}
+                                onChange={onChange}
                                 className={
                                     submitted && !user.email
                                         ? ' is-invalid'
@@ -38,7 +32,7 @@ const SignUp = ({
                                 type="password"
                                 name="password"
                                 value={user.password}
-                                onChange={handleChange}
+                                onChange={onChange}
                                 className={
                                     submitted && !user.password
                                         ? ' is-invalid'
@@ -57,7 +51,7 @@ const SignUp = ({
                                 type="text"
                                 name="name"
                                 value={user.name}
-                                onChange={handleChange}
+                                onChange={onChange}
                                 className={
                                     submitted && !user.name ? ' is-invalid' : ''
                                 }
@@ -71,7 +65,7 @@ const SignUp = ({
                         <button
                             type="submit"
                             className="btn-signup"
-                            onClick={handleSubmit}
+                            onClick={onSubmit}
                         >
                             {registering && (
                                 <span className="spinner-border spinner-border-sm mr-1"></span>

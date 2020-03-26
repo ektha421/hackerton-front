@@ -12,10 +12,11 @@
     }
     .sort-box {
         padding: 15px 0;
-        a {
+        span {
             font-size: 12px;
             font-weight: bold;
             color: $sub-text;
+            cursor: pointer;
             &:after {
                 content: '|';
                 display: inline-block;

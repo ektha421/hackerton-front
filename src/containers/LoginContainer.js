@@ -6,7 +6,7 @@ import Login from '../components/Login';
 const LoginContainer = () => {
     const [inputs, setInputs] = useState({
         email: '',
-        password: ''
+        password: '',
     });
     const [submitted, setSubmitted] = useState(false);
     const { email, password } = inputs;
@@ -14,16 +14,16 @@ const LoginContainer = () => {
     const dispatch = useDispatch();
 
     // reset login status
-    useEffect(() => { 
+    useEffect(() => {
         dispatch(userActions.logout());
-    }, []);
+    }, [dispatch]);
 
-    function handleChange(e) {
+    function onChange(e) {
         const { name, value } = e.target;
         setInputs(inputs => ({ ...inputs, [name]: value }));
     }
 
-    function handleSubmit(e) {
+    function onSubmit(e) {
         e.preventDefault();
 
         setSubmitted(true);
@@ -38,8 +38,8 @@ const LoginContainer = () => {
             email={email}
             password={password}
             loggingIn={loggingIn}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
+            onChange={onChange}
+            onSubmit={onSubmit}
         />
     );
 };
