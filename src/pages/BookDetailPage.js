@@ -107,7 +107,7 @@ const BookDetailPage = () => {
                                             readOnly
                                         />
                                     </div>
-                                    <p classname="name">ektha421</p>
+                                    <p className="name">ektha421</p>
                                     <p className="date">2020.03.24</p>
                                 </div>
                                 <div className="content-right">
