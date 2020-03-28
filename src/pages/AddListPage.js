@@ -4,11 +4,11 @@ const AddListPage = () => {
     return (
         <div className="contents">
             <div id="AddList">
-                <div className="wrap-add">
+                <div className="add-wrap">
                     <h1 className="title">Add Books</h1>
-                    <div className="wrap-add-form">
+                    <div className="add-form-wrap">
                         <form action="">
-                        {/* 
+                            {/* 
                             <span className="input-area">
                                 <select name="category" id="category">
                                     <option value="category_d">

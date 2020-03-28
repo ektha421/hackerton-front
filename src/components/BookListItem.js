@@ -1,58 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
 import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const BookListItem = () => {
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
+    let [view, setView] = useState({});
+    let limit = 12;
+    let page = 1;
+    
+    const getAll = useCallback(
+        page => {
+            axios
+                (process.env.REACT_APP_API_URL + '/books', {
+                    params: {
+                        method: 'GET',
+                        page: page,
+                        limit: limit,
+                    },
+                })
+                .then(res => {
+                    setData(res.data.rows);
+                    setView(res.data);
+                });
+        },
+        [limit],
+    );
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await axios.get(
-                process.env.REACT_APP_API_URL + `/books?page=1`,
-            );
-            setData(response.data.rows);
-            console.log(response.data);
-        }
-        fetchData();
-    }, []);
+        getAll();
+    }, [getAll, limit, page]);
+
+    const onPageChange = data => {
+        page = data.selected + 1;
+        getAll(page);
+    };
 
     return (
-        <div className="list-item">
-            <h2 className="title">전체목록</h2>
-            <ul className="item-wrap clearfix">
-                {data.map(list => (
-                    <li className="item" key={list.id}>
-                        <div className="book-img">
-                            <img src={list.thumbnail} alt="" />
-                        </div>
-                        <h3 className="book-title">{list.name}</h3>
-                        <h4 className="book-sub">{list.author}</h4>
-                        <Rating
-                            className="star"
-                            name="read-only"
-                            value={list.reviewScore}
-                            readOnly
-                        />
-                        <span className="review"> {list.reviewCnt}명</span>
-                    </li>
-                ))}
-            </ul>
-            <div className="pagination-wrap">
-                <ReactPaginate
-                    previousLabel={'<'}
-                    nextLabel={'>'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
-                    pageCount={data.count}
-                    current={data.currentPage}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    // onPageChange={this.handlePageClick}
-                    containerClassName={'pagination'}
-                    subContainerClassName={'pages pagination'}
-                    activeClassName={'active'}
-                />
+        <div id="bookList">
+            <div className="list-item">
+                <h2 className="title">전체목록</h2>
+                <ul className="item-wrap clearfix">
+                    {data.map(list => (
+                        <li className="item" key={list.id}>
+                            <Link to={`/book_detail/${list.id}`}>
+                                <div className="book-img">
+                                    <img src={list.thumbnail} alt="" />
+                                </div>
+                                <h3 className="book-title">{list.name}</h3>
+                                <h4 className="book-sub">{list.author}</h4>
+                            </Link>
+                            <Rating
+                                className="star"
+                                name="read-only"
+                                value={list.reviewScore}
+                                readOnly
+                            />
+                            <span className="review"> {list.reviewCnt}명</span>
+                        </li>
+                    ))}
+                </ul>
+                <div className="pagination-wrap">
+                    <ReactPaginate
+                        previousLabel={'<'}
+                        nextLabel={'>'}
+                        breakLabel={'...'}
+                        breakClassName={'break-me'}
+                        pageCount={view.count / limit}
+                        current={view.currentPage}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={onPageChange}
+                        containerClassName={'pagination'}
+                        subContainerClassName={'pages pagination'}
+                        activeClassName={'active'}
+                    />
+                </div>
             </div>
         </div>
     );

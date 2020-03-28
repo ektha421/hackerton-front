@@ -7,7 +7,7 @@ const SignUpContainer = () => {
     const [user, setUser] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
     });
     const [submitted, setSubmitted] = useState(false);
     const registering = useSelector(state => state.registration.registering);
@@ -17,27 +17,27 @@ const SignUpContainer = () => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    function handleChange(e) {
+    function onChange(e) {
         const { name, value } = e.target;
         setUser(user => ({ ...user, [name]: value }));
     }
 
-    function handleSubmit(e) {
+    function onSubmit(e) {
         e.preventDefault();
 
         setSubmitted(true);
-        if ( user.name && user.email && user.password) {
+        if (user.name && user.email && user.password) {
             dispatch(userActions.register(user));
         }
     }
 
     return (
         <SignUp
-            user={user} 
+            user={user}
             submitted={submitted}
             registering={registering}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
+            onChange={onChange}
+            onSubmit={onSubmit}
         />
     );
 };

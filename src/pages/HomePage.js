@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Rating from '@material-ui/lab/Rating';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const HomePage = () => {
-    const [value, setValue] = useState(2);
+    // const [value, setValue] = useState(2);
+    const value = 2;
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1400 },

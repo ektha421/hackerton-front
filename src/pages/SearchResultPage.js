@@ -1,19 +1,54 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import SearchResultItem from '../components/SearchResultItem';
+import axios from 'axios';
 
-const SearchResultPage = () => {
+const SearchResultPage = ({match: {params}}) => {
+    let [data, setData] = useState([]);
+    let [view, setView] = useState({});
+    let limit = 12;
+    let page = 1;
+    let searchVal = params.searchVal;
+    const getAll = useCallback(
+        page => {
+            axios
+                (process.env.REACT_APP_API_URL + '/books', {
+                    params: {
+                        method: 'GET',
+                        page: page,
+                        limit: limit,
+                        searchVal: searchVal,
+                        sort : 'createdAt'
+                    },
+                })
+                .then(res => {
+                    console.log(res)
+                    setData(res.data.rows);
+                    setView(res.data);
+                });
+        },
+        [limit,searchVal],
+    );
+
+    useEffect(() => {
+        getAll();
+    }, [getAll, limit, page, searchVal]);
+    
     return (
         <div className="contents" style={{ width: '1024px' }}>
-            <h3 className="result-title">
-                <span>'곰돌이푸'</span> 도서 검색 결과 (1)
-            </h3>
-            <div className="sort-box">
-                <a href="#">인기순</a>
-                <a href="#">최신순</a>
-                <a href="#">평점순</a>
-                <a href="#">리뷰 많은순</a>
+            <div id="searchResult">
+                <h3 className="result-title">
+                    <span>{params.searchVal}</span> 도서 검색 결과 ({view.count})
+                </h3>
+                <div className="sort-box">
+                    <span>인기순</span>
+                    <span>최신순</span>
+                    <span>평점순</span>
+                    <span>리뷰 많은순</span>
+                </div>
+                <SearchResultItem 
+                    data={data}
+                />
             </div>
-            <SearchResultItem />
         </div>
     );
 };
