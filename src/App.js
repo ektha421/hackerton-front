@@ -9,12 +9,7 @@ import SignUpPage from './pages/SignUpPage';
 import './App.scss';
 
 function App() {
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     history.listen((location, action) => {
-    //         dispatch(alertActions.clear());
-    //     });
-    // }, [dispatch]);
+   
     return (
         <Router history={history}>
             <LayoutHeader />

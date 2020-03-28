@@ -18,12 +18,12 @@ const LoginContainer = () => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    function onChange(e) {
+    const onChange = (e) => {
         const { name, value } = e.target;
         setInputs(inputs => ({ ...inputs, [name]: value }));
     }
 
-    function onSubmit(e) {
+    const onSubmit = (e) => {
         e.preventDefault();
 
         setSubmitted(true);

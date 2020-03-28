@@ -2,18 +2,20 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ReactPaginate from 'react-paginate';
 import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const BookListItem = () => {
     let [data, setData] = useState([]);
     let [view, setView] = useState({});
     let limit = 12;
     let page = 1;
-
-    const getListApi = useCallback(
+    
+    const getAll = useCallback(
         page => {
             axios
-                .get(process.env.REACT_APP_API_URL + '/books', {
+                (process.env.REACT_APP_API_URL + '/books', {
                     params: {
+                        method: 'GET',
                         page: page,
                         limit: limit,
                     },
@@ -27,12 +29,12 @@ const BookListItem = () => {
     );
 
     useEffect(() => {
-        getListApi();
-    }, [getListApi, limit, page]);
+        getAll();
+    }, [getAll, limit, page]);
 
     const onPageChange = data => {
         page = data.selected + 1;
-        getListApi(page);
+        getAll(page);
     };
 
     return (
@@ -42,11 +44,13 @@ const BookListItem = () => {
                 <ul className="item-wrap clearfix">
                     {data.map(list => (
                         <li className="item" key={list.id}>
-                            <div className="book-img">
-                                <img src={list.thumbnail} alt="" />
-                            </div>
-                            <h3 className="book-title">{list.name}</h3>
-                            <h4 className="book-sub">{list.author}</h4>
+                            <Link to={`/book_detail/${list.id}`}>
+                                <div className="book-img">
+                                    <img src={list.thumbnail} alt="" />
+                                </div>
+                                <h3 className="book-title">{list.name}</h3>
+                                <h4 className="book-sub">{list.author}</h4>
+                            </Link>
                             <Rating
                                 className="star"
                                 name="read-only"

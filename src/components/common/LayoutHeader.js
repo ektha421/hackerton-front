@@ -1,10 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from '../../_actions';
 import { history } from '../../_helpers';
 
 const LayoutHeader = () => {
+    const [searchVal, setSearchVal] = useState('');
     const loggedIn = useSelector(state => state.authentication.loggedIn);
     const userInfo = useSelector(state => state.authentication.user);
     const dispatch = useDispatch();
@@ -12,6 +13,11 @@ const LayoutHeader = () => {
     const onLogout = () => {
         dispatch(userActions.logout());
     };
+
+    //검색
+    const onChange = (e) => {
+        setSearchVal(e.target.value);
+    }
 
     return (
         <header id="header">
@@ -87,9 +93,12 @@ const LayoutHeader = () => {
                             <input
                                 type="text"
                                 placeholder="제목, 저자, 출판사 검색"
+                                onChange={onChange}
                             />
                             <button type="submit" className="btn-search">
-                                <i className="icon-search"></i>
+                                <Link to ={`/search/${searchVal}`}>
+                                    <i className="icon-search"></i>
+                                </Link>
                             </button>
                         </div>
                     </div>
