@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 const Login = ({submitted, email, password, loggingIn, handleChange, handleSubmit}) => {
     return (
@@ -30,6 +31,21 @@ const Login = ({submitted, email, password, loggingIn, handleChange, handleSubmi
                     {loggingIn && <span className="spinner-border spinner-border-sm mr-1"></span>}
                         로그인
                     </button>
+                
+                        <GoogleLogin
+                            clientId="1055029759864-87bu77ntpbt73r457aagbscloi35sdai.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={(res)=>{
+                                console.log(res);
+                            }}
+                            onFailure={()=>{
+
+                            }}
+                            cookiePolicy={'single_host_origin'} />   
+                        
+                        
+                
+
                 </form>
             </div>
             <nav className="menu">
