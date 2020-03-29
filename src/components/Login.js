@@ -2,6 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
+let googleResponse = (response) => {
+    const tokenBlob = new Blob([JSON.stringify({access_token: response.accessToken}, null, 2)], {type : 'application/json'});
+    const options = {
+        method: 'POST',
+        body: tokenBlob,
+        mode: 'cors',
+        cache: 'default'
+    };
+    fetch('http://localhost:8080/auth/google/callback', options).then(r => {
+        const token = r.headers.get('x-auth-token');
+        r.json().then(user => {
+            if (token) {
+                this.setState({isAuthenticated: true, user, token})
+            }
+        });
+    })
+};
+
+let onFailure = (error) => {
+    alert(error);
+};
+
 const Login = ({
     submitted,
     email,
@@ -10,6 +32,8 @@ const Login = ({
     onChange,
     onSubmit,
 }) => {
+
+
     return (
         <div id="login">
             <div className="login-wrap">
@@ -62,15 +86,11 @@ const Login = ({
                         </button>
                     </form>
                     <div className="sns-login">
-                    <GoogleLogin
+                        <GoogleLogin
                             clientId="1055029759864-87bu77ntpbt73r457aagbscloi35sdai.apps.googleusercontent.com"
-                            buttonText="Google Login"
-                            onSuccess={(res)=>{
-                                console.log(res);
-                            }}
-                            onFailure={()=>{
-
-                            }}
+                            buttonText="Google 로그인"
+                            onSuccess={googleResponse}
+                            onFailure={onFailure}
                             cookiePolicy={'single_host_origin'} />   
                         <button> Kakao 로그인 </button>
                         <button> Naver 로그인 </button>
