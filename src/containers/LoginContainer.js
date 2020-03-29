@@ -32,6 +32,18 @@ const LoginContainer = () => {
         }
     }
 
+    const googleLogin = (response) =>{
+
+        if(response.accessToken)
+        {
+            dispatch(userActions.googleLogin(response.accessToken))
+        }
+    }
+
+    const onSocialFailure = (response) =>{
+
+    }
+
     return (
         <Login
             submitted={submitted}
@@ -40,6 +52,8 @@ const LoginContainer = () => {
             loggingIn={loggingIn}
             onChange={onChange}
             onSubmit={onSubmit}
+            googleLogin={googleLogin}
+            onSocialFailure={onSocialFailure}
         />
     );
 };

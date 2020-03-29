@@ -31,9 +31,9 @@ const Login = ({
     loggingIn,
     onChange,
     onSubmit,
+    googleLogin,
+    onSocialFailure
 }) => {
-
-
     return (
         <div id="login">
             <div className="login-wrap">
@@ -88,12 +88,12 @@ const Login = ({
                     <div className="sns-login">
                         <GoogleLogin
                             clientId="1055029759864-87bu77ntpbt73r457aagbscloi35sdai.apps.googleusercontent.com"
-                            buttonText="Google 로그인"
-                            onSuccess={googleResponse}
-                            onFailure={onFailure}
+                            buttonText=" 로그인"
+                            onSuccess={googleLogin}
+                            onFailure={onSocialFailure}
                             cookiePolicy={'single_host_origin'} />   
-                        <button> Kakao 로그인 </button>
-                        <button> Naver 로그인 </button>
+                        {/* <button> Kakao 로그인 </button> */}
+                        {/* <button> Naver 로그인 </button> */}
                     </div>
                 </div>
                 <nav className="menu">

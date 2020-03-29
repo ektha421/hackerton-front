@@ -7,6 +7,7 @@ export const userActions = {
     logout,
     register,
     getAll,
+    googleLogin,
     delete: _delete,
 };
 
@@ -35,6 +36,38 @@ function login(email, password) {
         return { type: userConstants.LOGIN_FAILURE, error };
     }
 }
+
+function googleLogin (accessToken) {
+
+
+    console.log('actions', accessToken);
+    return dispatch => {
+        dispatch(request({ accessToken }));
+
+        console.log('userSevice before')
+        userService.googleLogin(accessToken).then(
+            user => {
+                dispatch(success(user));
+                history.push('/home');
+            },
+            error => {
+                dispatch(failure(error.toString()));
+            },
+        );
+    };
+
+    function request(user) {
+        return { type: userConstants.LOGIN_REQUEST, user };
+    }
+    function success(user) {
+        return { type: userConstants.LOGIN_SUCCESS, user };
+    }
+    function failure(error) {
+        return { type: userConstants.LOGIN_FAILURE, error };
+    }
+}
+
+
 
 function logout() {
     userService.logout();

@@ -1,4 +1,6 @@
-import { authHeader } from '../_helpers';
+import {
+    authHeader
+} from '../_helpers';
 
 export const userService = {
     login,
@@ -7,23 +9,56 @@ export const userService = {
     getAll,
     getById,
     update,
+    googleLogin,
     delete: _delete,
 };
 
 function login(email, password) {
     return fetch(process.env.REACT_APP_API_URL + `/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-    })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            }),
+        })
         .then(handleResponse)
-        .then(({ user, token }) => {
+        .then(({
+            user,
+            token
+        }) => {
             user.token = token;
             localStorage.setItem('user', JSON.stringify(user));
 
             return user;
         });
 }
+
+function googleLogin(accessToken) {
+
+    console.log(accessToken);
+
+    return fetch(process.env.REACT_APP_API_URL + `/auth/google/callback`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ access_token: accessToken }, null, 2),
+            mode: 'cors',
+            cache: 'default'
+        }).then(handleResponse)
+        .then(({
+            user,
+            token
+        }) => {
+            user.token = token;
+            localStorage.setItem('user', JSON.stringify(user));
+            return user;
+        });
+}
+
 
 function logout() {
     localStorage.removeItem('user');
@@ -46,7 +81,9 @@ function getById(id) {
 function register(user) {
     return fetch(process.env.REACT_APP_API_URL + `/auth/sign-up`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(user),
     }).then(handleResponse);
 }
@@ -54,7 +91,10 @@ function register(user) {
 function update(user) {
     return fetch(process.env.REACT_APP_API_URL + `/users/${user.id}`, {
         method: 'PUT',
-        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        headers: {
+            ...authHeader(),
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(user),
     }).then(handleResponse);
 }
