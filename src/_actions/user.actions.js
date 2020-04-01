@@ -38,8 +38,6 @@ function login(email, password) {
 }
 
 function googleLogin (accessToken) {
-
-
     console.log('actions', accessToken);
     return dispatch => {
         dispatch(request({ accessToken }));
@@ -121,7 +119,6 @@ function getAll() {
     }
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {
         dispatch(request(id));
