@@ -1,0 +1,24 @@
+#myPage{
+    width: 800px;
+    margin: auto;
+    .title{
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 2px solid $black;
+        font-size: 20px;
+        color: $black;
+    }
+    .menu{
+        display: flex;
+        a{
+            flex: 1;
+            display: inline-block;
+            padding: 15px;
+            text-align: center;
+            &.active{
+                color: $color-sub;
+                font-weight: bold;
+            }
+        }
+    }
+}
