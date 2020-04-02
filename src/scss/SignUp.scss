@@ -1,76 +1,37 @@
 html,
 body,
 #root {
-    height: 100%;
+  height: 100%;
 }
 
 #signUp {
-    display: table;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    .signup-wrap {
-        padding-top: 140px;
-        .dj-logo {
-            display: inline-block;
-            margin-bottom: 50px;
-            font-size: 25px;
-            color: $black;
-            letter-spacing: -1.5px;
-        }
-        .signup-form-wrap {
-            display: block;
-            width: 435px;
-            margin: 0 auto;
-            .input-area {
-                display: block;
-                height: 55px;
-                border: 1px solid $color-sub;
-                + .input-area {
-                    margin-top: 15px;
-                    border: 1px solid $grey;
-                    label {
-                        background-color: $grey;
-                    }
-                }
-                label {
-                    float: left;
-                    width: 70px;
-                    height: 55px;
-                    background-color: $color-sub;
-                    line-height: 55px;
-                    color: $white;
-                    font-size: 18px;
-                    font-weight: 600;
-                    margin-top: -1px;
-                }
-                input {
-                    float: left;
-                    width: 363px;
-                    height: 100%;
-                    padding: 0 10px;
-                    border: 0;
-                    background: transparent;
-                }
-                &:after {
-                    content: '';
-                    display: block;
-                    clear: both;
-                }
-                &:last-of-type {
-                    margin-bottom: 20px;
-                }
-            }
-            .btn-signup {
-                width: 100%;
-                height: 54px;
-                margin-bottom: 10px;
-                border: none;
-                background-color: $color-main;
-                color: $white;
-                font-size: 20px;
-                font-weight: bold;
-            }
-        }
+  display: table;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  .signup-wrap {
+    padding-top: 140px;
+    .dj-logo {
+      display: inline-block;
+      margin-bottom: 50px;
+      font-size: 25px;
+      color: $black;
+      letter-spacing: -1.5px;
     }
+    .signup-form-wrap {
+      display: block;
+      width: 435px;
+      margin: 0 auto;
+      .btn-signup {
+        width: 100%;
+        height: 54px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: $color-main;
+        color: $white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
 }
