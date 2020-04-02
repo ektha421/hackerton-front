@@ -181,6 +181,12 @@
       border: 1px solid #eee;
       border-radius: 3px;
       cursor: pointer;
+      a {
+        display: block;
+        font-size: 18px;
+        color: #888;
+        outline: none;
+      }
       &.active {
         background-color: $color-main;
         border: 1px solid $color-main;
@@ -188,11 +194,6 @@
           display: block;
           color: $white;
         }
-      }
-      a {
-        display: block;
-        font-size: 18px;
-        color: #888;
       }
     }
   }

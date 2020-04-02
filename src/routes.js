@@ -1,5 +1,6 @@
 import HomePage from "./pages/HomePage";
 import BookListPage from "./pages/BookListPage";
+import BookDetailPage from "./pages/BookDetailPage";
 import MyPage from "./pages/MyPage";
 import SearchResultPage from "./pages/SearchResultPage";
 import AddBookPage from "./pages/AddBookPage";
@@ -9,6 +10,7 @@ const routes = [
   { path: "/home", name: "홈", component: HomePage },
   { path: "/books", name: "책리스트", component: BookListPage },
   { path: "/addlist", name: "책등록", component: AddBookPage },
+  { path: "/book_detail/:id", name: "책상세페이지", component: BookDetailPage },
   { path: "/search/:searchVal", name: "검색결과", component: SearchResultPage },
   { path: "/profile", name: "프로필", component: MyPage },
   { path: "/my_review", name: "내 리뷰", component: MyPage },
