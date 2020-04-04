@@ -14,7 +14,6 @@ const LayoutHeader = () => {
     dispatch(userActions.logout());
   };
 
-  //검색
   const onChange = e => {
     setSearchVal(e.target.value);
   };
