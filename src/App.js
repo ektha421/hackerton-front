@@ -8,14 +8,14 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import './App.scss';
 
-function App() {
-   
+function App(props) {
     return (
         <Router history={history}>
             <LayoutHeader />
-            <Switch>
+            
                 <Route path="/login" name="login" component={LoginPage} />
                 <Route path="/signup" name="signup" component={SignUpPage} />
+                <Switch>
                 <div id="content">
                     {Routes.map((route, idx) => {
                         return (
@@ -29,7 +29,7 @@ function App() {
                         );
                     })}
                 </div>
-            </Switch>
+                </Switch>
             <LayoutFooter />
         </Router>
     );

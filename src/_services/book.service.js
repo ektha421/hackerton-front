@@ -3,16 +3,14 @@ import {
 } from '../_helpers';
 
 export const bookService = {
-    uploadThumnail
+    uploadThumnail,
+    addBook,
+    getBookInfo
 };
 function uploadThumnail(file ) {
 
-    console.log(file);
     var data = new FormData();
     data.append('imgFile', file);
-    
-    console.log('formData',data);
-
     let headers = authHeader();
     // headers['Content-Type'] = 'multipart/form-data';
 
@@ -28,27 +26,19 @@ function uploadThumnail(file ) {
 }
 
 
-function login(email, password) {
-    return fetch(process.env.REACT_APP_API_URL + `/auth/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email,
-                password
-            }),
-        })
-        .then(handleResponse)
-        .then(({
-            user,
-            token
-        }) => {
-            user.token = token;
-            localStorage.setItem('user', JSON.stringify(user));
 
-            return user;
-        });
+function addBook(book){
+
+    console.log(book);
+    let headers =authHeader();
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+    
+    return fetch(process.env.REACT_APP_API_URL+ `/books`,{
+        method : 'POST',
+        headers : headers,
+        body: book,
+        redirect : 'follow'
+    }).then(handleResponse);   
 }
 
 function handleResponse(response) {
@@ -68,3 +58,12 @@ function handleResponse(response) {
     });
 }
 
+function getBookInfo(id) {
+    // console.log(book);
+    let headers = authHeader();
+
+    return fetch(process.env.REACT_APP_API_URL + `/books/${id}`, {
+        method: 'GET',
+        headers: headers
+    }).then(handleResponse);
+}
