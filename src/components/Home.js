@@ -48,12 +48,14 @@ const Home = ({
                     itemClass="carousel-item-padding-40-px"
                 >
                 { hightScoreBookList.map((book)=>(
-                    <div className="banner">
+                    <Link to={`/book_detail/${book.id}`} key={book.id}>
+                    <div className="banner" >
                         <img
                             src={book.thumbnail}
                             alt="비행청소년에서 억만장자 CEO로 성공한 비결"
                         />
                     </div>
+                    </Link>
                 ))}
                 </Carousel>
                 }
@@ -61,7 +63,7 @@ const Home = ({
             <div className="new-book-wrap">
                 <div className="contents">
                     <h2 className="title">
-                        <Link to="/">
+                        <Link to="/books?sort=createdAt">
                             이달의 신작<i className="icon-right-open-big"></i>
                         </Link>
                     </h2>
@@ -80,7 +82,7 @@ const Home = ({
                         itemClass="carousel-item-padding-40-px"
                     >
                         { newBookList.map((book)=>(
-                            <div className="banner">
+                            <div className="banner" key={book.id}>
                             <Link to={`/book_detail/${book.id}`}>
                             <div className="img">
                                 <img
@@ -101,14 +103,14 @@ const Home = ({
                 <div className="contents">
                     <h2 className="title">
                         <Link to="/">
-                            베스트셀러<i className="icon-right-open-big"></i>
+                            Best Score<i className="icon-right-open-big"></i>
                         </Link>
                     </h2>
                     <div className="book-list">
                         <div className="item-box">
                             { manyReviewBookList.length > 0 &&
                                 manyReviewBookList.map((book,index)=>(
-                                    <Link to={`/book_detail/${book.id}`}>
+                                    <Link to={`/book_detail/${book.id}`} key={book.id}>
                                     <div className="item">
                                         <div className="img">
                                             <span className="rank">{index+1}</span>
@@ -124,6 +126,7 @@ const Home = ({
                                             <h4 className="author">{book.author}</h4>
                                             <Rating
                                                 name="read-only"
+                                                precision={0.5}
                                                 value={book.reviewScore}
                                                 readOnly
                                             />

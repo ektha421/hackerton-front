@@ -1,9 +1,9 @@
 import React from 'react';
 import BookDetailContainer from '../containers/BookDetailContainer';
 
-function BookDetailPage( ) {
+function BookDetailPage( {match: { params }}) {
     return (
-      <BookDetailContainer/>
+      <BookDetailContainer params={params}/>
     );
 }
 
