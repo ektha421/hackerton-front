@@ -6,7 +6,7 @@ const AddBook = ({
         content,
         thumbnail,
         author,
-        publicsher,
+        publisher,
         onChangeFile,
         onChange,
         onSubmit,
@@ -35,6 +35,7 @@ const AddBook = ({
                                 <input
                                     type="text"
                                     id="name"
+                                    name="name"
                                     placeholder="책 이름"
                                     onChange={onChange}
                                 />
@@ -56,6 +57,7 @@ const AddBook = ({
                                 <input
                                     type="text"
                                     id="author"
+                                    name="author"
                                     placeholder="저자"
                                     onChange={onChange}
                                 />
@@ -64,6 +66,8 @@ const AddBook = ({
                                 <input
                                     type="text"
                                     id="publisher"
+                                    name="publisher"
+                                    value={publisher}
                                     placeholder="출판사"
                                     onChange={onChange}
                                 />
@@ -73,10 +77,11 @@ const AddBook = ({
                                 id="description"
                                 cols="30"
                                 rows="8"
+                                name="content"
                                 onChange={onChange}
                                 placeholder="책 소개"
                             ></textarea>
-                            <button className="btn-signup">등록하기</button>
+                            <button className="btn-signup" onClick={onSubmit}>등록하기</button>
                         </form>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ const Home = ({
     return (
         <div id="main">
             <div className="banner-wrap">
-                {( newBookList.length > 0) && 
+                {( hightScoreBookList.length > 0) && 
                 <Carousel
                     swipeable={true}
                     draggable={false}
@@ -47,7 +47,7 @@ const Home = ({
                     removeArrowOnDeviceType={['tablet', 'mobile']}
                     itemClass="carousel-item-padding-40-px"
                 >
-                { manyReviewBookList.map((book)=>(
+                { hightScoreBookList.map((book)=>(
                     <div className="banner">
                         <img
                             src={book.thumbnail}
@@ -65,7 +65,7 @@ const Home = ({
                             이달의 신작<i className="icon-right-open-big"></i>
                         </Link>
                     </h2>
-                    { hightScoreBookList.length > 0 &&
+                    { newBookList.length > 0 &&
                     <Carousel
                         swipeable={true}
                         draggable={true}
@@ -79,7 +79,7 @@ const Home = ({
                         removeArrowOnDeviceType={['tablet', 'mobile']}
                         itemClass="carousel-item-padding-40-px"
                     >
-                        { hightScoreBookList.map((book)=>(
+                        { newBookList.map((book)=>(
                             <div className="banner">
                             <Link to={`/book_detail/${book.id}`}>
                             <div className="img">
@@ -108,6 +108,7 @@ const Home = ({
                         <div className="item-box">
                             { manyReviewBookList.length > 0 &&
                                 manyReviewBookList.map((book,index)=>(
+                                    <Link to={`/book_detail/${book.id}`}>
                                     <div className="item">
                                         <div className="img">
                                             <span className="rank">{index+1}</span>
@@ -127,7 +128,8 @@ const Home = ({
                                                 readOnly
                                             />
                                         </div>
-                                    </div>))
+                                    </div>
+                                    </Link>))
                             }
                         </div>
                     </div>

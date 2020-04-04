@@ -3,7 +3,8 @@ import { bookService } from '../_services';
 import { history } from '../_helpers';
 
 export const bookActions = {
-    uploadThumnail
+    uploadThumnail,
+    addBook
 };
 
 
@@ -28,28 +29,53 @@ function uploadThumnail(file ){
     }
 }
 
-function addBook(){
-
-}
-
-
-function getBanner() {
+function addBook(book){
     return dispatch => {
         dispatch(request());
 
-        bookService.getBanner().then(
-            banner => dispatch(success(banner)),
+        bookService.addBook(book).then(
+            book => {
+                dispatch(success(book));
+                alert(book.name +'이 등록되었습니다');
+                history.push('/home');
+            },
             error => dispatch(failure(error.toString())),
         );
     };
 
     function request() {
-        return { type: bookConstants.BANNER_REQUEST };
+        return { type: bookConstants.BOOK_ADD_REQUEST };
     }
-    function success(banner) {
-        return { type: bookConstants.BANNER_SUCCESS, banner };
+    function success(book) {
+        return { type: bookConstants.BOOK_ADD_SUCCESS, book };
     }
     function failure(error) {
-        return { type: bookConstants.BANNER_FAILURE, error };
+        return { type: bookConstants.BOOK_ADD_FAILURE, error };
+    }
+}
+
+
+function getBookInfo(id){
+    return dispatch => {
+        dispatch(request());
+
+        bookService.getBookInfo(id).then(
+            book => {
+                dispatch(success(book));
+                // alert(book.name +'이 등록되었습니다');
+                // history.push('/home');
+            },
+            error => dispatch(failure(error.toString())),
+        );
+    };
+
+    function request() {
+        return { type: bookConstants.BOOK_ADD_REQUEST };
+    }
+    function success(book,comme) {
+        return { type: bookConstants.BOOK_ADD_SUCCESS, book };
+    }
+    function failure(error) {
+        return { type: bookConstants.BOOK_ADD_FAILURE, error };
     }
 }

@@ -1,6 +1,14 @@
-import { bookConstants} from '../_constants';
+import {
+  bookConstants
+} from '../_constants';
 
-const initialState = { name : '', thumnail : '',  author : '',publisher : '', content : '' };
+const initialState = {
+  name: '',
+  thumnail: '',
+  author: '',
+  publisher: '',
+  content: ''
+};
 
 export function book(state = initialState, action) {
   switch (action.type) {
@@ -13,6 +21,18 @@ export function book(state = initialState, action) {
         thumbnail: action.location,
       };
     case bookConstants.IMG_ADD_FAILURE:
+      return {
+        error: action.error
+      };
+    case bookConstants.BOOK_ADD_REQUEST:
+      return {
+        loading: true,
+      };
+    case bookConstants.BOOK_ADD_SUCCESS:
+      return {
+        info: action.book,
+      };
+    case bookConstants.BOOK_ADD_FAILURE:
       return {
         error: action.error
       };

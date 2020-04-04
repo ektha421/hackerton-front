@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { bookActions } from '../_actions';
 import AddBook from '../components/AddBook';
-
 const AddBookContainer = () => {
-    const [inputs, setInputs] = useState({
-        name: '',
-        content: '',
-        // thumbnail : '',
-        author : '',
-        publicsher : '',
+        const [inputs, setInputs] = useState({ name: '', content: '', author: '', publisher: '' });
+        const [submitted, setSubmitted] = useState(false);
+        const { name, content, author, publisher } = inputs;
+        const { thumbnail } = useSelector(state => state.book);
 
-    });
-    const [submitted, setSubmitted] = useState(false);
-    const { name, content, thumbnail, author, publicsher } = useSelector(state =>state.book);
-
-    console.log('thumbnail',thumbnail);
+    
     // const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
 
@@ -26,14 +19,12 @@ const AddBookContainer = () => {
 
     const onChange = (e) => {
         const { name, value } = e.target;
+        console.log(name,value);
         setInputs(inputs => ({ ...inputs, [name]: value }));
     }
 
     const onChangeFile = (e)=>{
-        const {name, value, files} = e.target;
-
-
-        console.log('파일 들어왔다',files[0]);
+        const { files } = e.target;
         if(files.length > 0){
             dispatch(bookActions.uploadThumnail(files[0]));
         }
@@ -41,26 +32,20 @@ const AddBookContainer = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
         setSubmitted(true);
-        if (name && content && thumbnail&& author &&publicsher) {
-            // dispatch(bookActions.login(email, password));
+
+        let urlencoded = new URLSearchParams();
+        urlencoded.append("name", name);
+        urlencoded.append("content", content);
+        urlencoded.append("thumbnail", thumbnail);
+        urlencoded.append("author", author);
+        urlencoded.append("publisher",publisher);
+        
+        console.log('submit',urlencoded);
+        if (name && content && thumbnail && author && publisher) {
+            dispatch(bookActions.addBook(urlencoded));
         }
     }
-
-
-    // useEffect(() => {
-    //     dispatch(bookActions.getBanner());
-    // }, [dispatch]);
-
-    // const newBookList = useSelector(state => state.home.newBookList);
-    // const manyReviewBookList = useSelector(state => state.home.manyReviewBookList);
-    // const hightScoreBookList = useSelector(state => state.home.hightScoreBookList);
-    // const dispatch = useDispatch();
-    
-    // const getBanner = ()=>{
-
-    // };   
 
     return (
         <AddBook
@@ -68,10 +53,9 @@ const AddBookContainer = () => {
             content={content}
             thumbnail={thumbnail}
             author={author} 
-            publicsher={publicsher}
+            publisher={publisher}
             onChange={onChange}
             onChangeFile={onChangeFile}
-
             onSubmit={onSubmit}
         />
     );
