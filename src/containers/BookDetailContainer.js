@@ -7,12 +7,18 @@ const BookDetailContainer = ({params}) => {
     const [star, setStar] = useState(3);
     const [review, setReview] = useState('');
 
-    const { id } = params;
+    let { id } = params;
     const book = useSelector(state => state.book);
     const dispatch = useDispatch();
+
+    
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps    
     useEffect(() => {
-        dispatch(bookActions.getBookInfo(id));
-    }, [dispatch]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        dispatch(bookActions.getBookInfo(id)); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    
     
     const onChangeStar  = (e , newValue) =>{
         setStar(newValue);
