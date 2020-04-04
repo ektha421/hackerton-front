@@ -12,6 +12,8 @@ const AddBookContainer = () => {
     // const loggingIn = useSelector(state => state.authentication.loggingIn);
     const dispatch = useDispatch();
 
+
+    console.log('asdf');
     // reset login status
     useEffect(() => {
         // dispatch(userActions.logout());
