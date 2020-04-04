@@ -12,6 +12,8 @@ const BookDetailContainer = ({params}) => {
         dispatch(bookActions.getBookInfo(id));
     }, [dispatch]);
 
+
+    
     const book = useSelector(state => state.book);
     const dispatch = useDispatch();
     
