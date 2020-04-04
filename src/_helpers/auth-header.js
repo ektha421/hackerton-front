@@ -7,6 +7,6 @@ export function authHeader() {
         myHeaders.append("Authorization", 'Bearer ' + user.token);
         return myHeaders;
     } else {
-        return {};
+        return myHeaders;
     }
 }

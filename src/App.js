@@ -10,12 +10,13 @@ import './App.scss';
 
 function App(props) {
     return (
+        <div id="root">
         <Router history={history}>
             <LayoutHeader />
-            
                 <Route path="/login" name="login" component={LoginPage} />
                 <Route path="/signup" name="signup" component={SignUpPage} />
                 <Switch>
+                <React.Fragment>
                 <div id="content">
                     {Routes.map((route, idx) => {
                         return (
@@ -29,9 +30,11 @@ function App(props) {
                         );
                     })}
                 </div>
+                </React.Fragment>
                 </Switch>
             <LayoutFooter />
         </Router>
+        </div>
     );
 }
 

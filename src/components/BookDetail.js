@@ -1,34 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Rating from '@material-ui/lab/Rating';
-import axios from 'axios';
 
-const BookDetail = ({match: { params }}) => {
-    const [value, setValue] = useState(2);
-    let [info, setInfo] = useState([]);
-    let [reviews, setReviews] = useState([]);
-    let {id} = params;
-    
-    const getAll = useCallback(
-        id => {
-            axios
-                (process.env.REACT_APP_API_URL + `/books/${id}`, {
-                    method: 'GET',
-                    headers: { 'Content-Type': 'application/json' }
-                })
-                .then(res => {
-                    console.log(res.data);
-                    setInfo(res.data.info);
-                    setReviews(res.data.reviews);
-                });
-        },
-        [id]
-    );
-
-    useEffect(() => {
-        getAll(id);
-    }, [getAll]);
-
-
+const BookDetail = ({ info, star, onChangeStar, onChange, onSubmit}) => {
+    console.log('info',info);
     return (
         <div className="contents">
             <div id="bookDetail">
@@ -47,7 +21,9 @@ const BookDetail = ({match: { params }}) => {
                             <dd>{info.publisher}</dd>
                         </dl>
                         <div className="star-box">
-                            <Rating name="read-only" value={info.reviewScore} readOnly />
+                            <Rating name="read-only" 
+                            precision={0.5}
+                            defaultValue={info.reviewScore} />
                             <span className="review">/ {info.reviewCnt}명</span>
                         </div>
                     </div>
@@ -60,32 +36,32 @@ const BookDetail = ({match: { params }}) => {
                 </div>
                 <div className="review-wrap">
                     <h4 className="detail-title">리뷰</h4>
-                    <form className="score-wrap">
+                    <form className="score-wrap" onSubmit={onSubmit}>
                         <h4 className="title">이 책의 점수는요?</h4>
                         <div className="star-box">
                             <Rating
                                 name="simple-controlled"
-                                value={value}
-                                onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                }}
+                                value={star}
+                                precision={0.5}
+                                onChange={onChangeStar}
                             />
                         </div>
                         <div className="review-add">
-                            <textarea placeholder="리뷰를 작성해주세요." />
-                            <button type="submit">리뷰등록</button>
+                            <textarea placeholder="리뷰를 작성해주세요." onChange={onChange} />
+                            <button type="submit" onClick={onSubmit} >리뷰등록</button>
                         </div>
                     </form>
                     <div className="review-list-wrap">
                         <ul className="list-wrap">
-                        {reviews.map(review => (
+                        {info.reviews.map(review => (
                             <li className="list" key={review.id}>
                                 <div className="content-left">
                                     <div className="star-box">
                                         <Rating
                                             className="star"
                                             name="read-only"
-                                            value={3}
+                                            value={review.score}
+                                            precision={0.5}
                                             readOnly
                                         />
                                     </div>
@@ -96,7 +72,7 @@ const BookDetail = ({match: { params }}) => {
                                     <p>
                                        {review.content}
                                     </p>
-                                    <div className="btn-wrap">
+                                    {/* <div className="btn-wrap">
                                         <button>
                                             <i className="icon-thumbs-up"></i>
                                             <span>0</span>
@@ -105,7 +81,7 @@ const BookDetail = ({match: { params }}) => {
                                             <i className="icon-thumbs-down"></i>
                                             <span>0</span>
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </li>
                             ))}

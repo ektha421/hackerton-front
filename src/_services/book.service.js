@@ -1,11 +1,13 @@
 import {
-    authHeader
+    authHeader,
+    history
 } from '../_helpers';
 
 export const bookService = {
     uploadThumnail,
     addBook,
-    getBookInfo
+    getBookInfo,
+    addReview
 };
 function uploadThumnail(file ) {
 
@@ -24,12 +26,7 @@ function uploadThumnail(file ) {
         return location;
     });
 }
-
-
-
 function addBook(book){
-
-    console.log(book);
     let headers =authHeader();
     headers.append("Content-Type", "application/x-www-form-urlencoded");
     
@@ -41,29 +38,43 @@ function addBook(book){
     }).then(handleResponse);   
 }
 
-function handleResponse(response) {
-    return response.text().then(text => {
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
-            if (response.status === 401) {
-                // eslint-disable-next-line no-restricted-globals
-                location.reload();
-            }
-
-            const error = (data && data.message) || response.statusText;
-            return Promise.reject(error);
-        }
-
-        return data;
-    });
-}
-
 function getBookInfo(id) {
-    // console.log(book);
     let headers = authHeader();
 
     return fetch(process.env.REACT_APP_API_URL + `/books/${id}`, {
         method: 'GET',
         headers: headers
     }).then(handleResponse);
+}
+
+
+function addReview(reviewBody){
+    let headers = authHeader();
+    headers.append("Content-Type", "application/json");
+
+    let body = JSON.stringify(reviewBody);
+    return fetch(process.env.REACT_APP_API_URL + `/reviews`, {
+        method: 'POST',
+        headers: headers,
+        body  
+    }).then(handleResponse);
+}
+
+function handleResponse(response) {
+    return response.text().then(text => {
+        if (!response.ok) {
+            if (response.status === 401) {
+                alert('로그인을 하셔야 합니다.');
+                history.push('/login');
+                // eslint-disable-next-line no-restricted-globals
+                // location.reload();
+            }
+
+            const error = (data && data.message) || response.statusText;
+            return Promise.reject(error);
+        }
+        const data = text && JSON.parse(text);
+
+        return data;
+    });
 }
