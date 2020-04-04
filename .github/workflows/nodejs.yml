@@ -23,13 +23,11 @@ jobs:
               run: node -v
 
             - name: Install Dependencies # 의존 파일 설치
+              run: |
+                npm ci
+                npm install
               env:
                 CI: false
-              run: npm install
-               
-
-            - name: NPM audit fix # 의존 파일 설치
-              run: npm audit fix
             # - name: Test
               # run: npm test
 
