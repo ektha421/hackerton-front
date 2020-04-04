@@ -57,16 +57,18 @@ const LayoutHeader = () => {
                 <i className="icon-book-open"></i>BOOKS
               </span>
             </NavLink>
+            {loggedIn && (
             <NavLink to="/addlist" className="link" activeClassName="active">
               <span>
                 <i className="icon-list-add"></i>ADD
               </span>
-            </NavLink>
+            </NavLink>)}
+            {loggedIn && (
             <NavLink to="/profile" className="link" activeClassName="active">
               <span>
                 <i className="icon-user-circle-o"></i>MYDJ
               </span>
-            </NavLink>
+            </NavLink>)}
           </nav>
           <div className="header-search">
             <div className="input-box">
@@ -74,6 +76,11 @@ const LayoutHeader = () => {
                 type="text"
                 placeholder="제목, 저자, 출판사 검색"
                 onChange={onChange}
+                onKeyDown={(e)=>{
+                  if (e.key === 'Enter') {
+                    history.push(`/search/${searchVal}`);
+                  }
+                }}
               />
               <button type="submit" className="btn-search">
                 <Link to={`/search/${searchVal}`}>
