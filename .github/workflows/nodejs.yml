@@ -24,10 +24,10 @@ jobs:
 
             - name: Install Dependencies # 의존 파일 설치
               run: |
-                npm ci
                 npm install
-              env:
-                CI: false
+              # env:
+                # npm ci
+                # CI: false
             # - name: Test
               # run: npm test
 
