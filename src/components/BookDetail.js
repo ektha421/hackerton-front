@@ -117,4 +117,4 @@ const BookDetail = ({match: { params }}) => {
     );
 };
 
-export default BookDetailPage;
+export default BookDetail;
