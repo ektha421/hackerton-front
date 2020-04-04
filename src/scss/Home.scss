@@ -83,66 +83,69 @@
                     flex-wrap: wrap;
                     flex-direction: row;
                     width: 100%;
-                    .item {
+                    a{
+                        display: block;
                         width: 33%;
-                        margin: auto;
-                        .img {
-                            position: relative;
-                            display: inline-block;
-                            width: 100px;
-                            margin-right: 20px;
-                            .rank {
-                                position: absolute;
-                                width: 34px;
-                                height: 34px;
-                                line-height: 30px;
-                                top: -10px;
-                                left: -10px;
-                                background: $color-sub;
-                                border-radius: 50%;
-                                text-align: center;
-                                color: $white;
+                        .item {
+                            margin: auto;
+                            .img {
+                                position: relative;
+                                display: inline-block;
+                                width: 100px;
+                                margin-right: 20px;
+                                .rank {
+                                    position: absolute;
+                                    width: 34px;
+                                    height: 34px;
+                                    line-height: 30px;
+                                    top: -10px;
+                                    left: -10px;
+                                    background: $color-sub;
+                                    border-radius: 50%;
+                                    text-align: center;
+                                    color: $white;
+                                    box-sizing: border-box;
+                                }
+                                img {
+                                    width: 100%;
+                                    box-shadow: 1px 1px 3px 1px #dcdcdc;
+                                }
+                            }
+                            .txt-box {
+                                display: inline-block;
+                                width: 250px;
+                                padding: 50px 0;
+                                border-bottom: 1px solid #dcdcdc;
                                 box-sizing: border-box;
+                                text-align: left;
+                                .name {
+                                    padding-right: 15px;
+                                    font-weight: 700;
+                                    line-height: 1.33em;
+                                    color: $black;
+                                    max-height: 2.7em;
+                                    margin-bottom: 10px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: block;
+                                    white-space: nowrap;
+                                    font-size: 15px;
+                                    box-sizing: border-box;
+                                }
+                                .author {
+                                    margin-bottom: 10px;
+                                    color: $sub-text;
+                                }
+                                .MuiSvgIcon-root {
+                                    width: 15px;
+                                    height: 15px;
+                                }
                             }
-                            img {
-                                width: 100%;
-                                box-shadow: 1px 1px 3px 1px #dcdcdc;
+                            &:nth-of-type(7) .txt-box,
+                            &:nth-of-type(8) .txt-box,
+                            &:nth-of-type(9) .txt-box {
+                                border-bottom: 0;
                             }
-                        }
-                        .txt-box {
-                            display: inline-block;
-                            width: 250px;
-                            padding: 50px 0;
-                            border-bottom: 1px solid #dcdcdc;
-                            box-sizing: border-box;
-                            text-align: left;
-                            .name {
-                                padding-right: 15px;
-                                font-weight: 700;
-                                line-height: 1.33em;
-                                color: $black;
-                                max-height: 2.7em;
-                                margin-bottom: 10px;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                display: block;
-                                white-space: nowrap;
-                                font-size: 15px;
-                                box-sizing: border-box;
-                            }
-                            .author {
-                                margin-bottom: 10px;
-                                color: $sub-text;
-                            }
-                            .MuiSvgIcon-root {
-                                width: 15px;
-                                height: 15px;
-                            }
-                        }
-                        &:nth-of-type(7) .txt-box,
-                        &:nth-of-type(8) .txt-box,
-                        &:nth-of-type(9) .txt-box {
-                            border-bottom: 0;
                         }
                     }
                 }
