@@ -8,20 +8,17 @@ const BookDetailContainer = ({params}) => {
     const [review, setReview] = useState('');
 
     const { id } = params;
+    const book = useSelector(state => state.book);
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(bookActions.getBookInfo(id));
     }, [dispatch]);
-
-
-    
-    const book = useSelector(state => state.book);
-    const dispatch = useDispatch();
     
     const onChangeStar  = (e , newValue) =>{
         setStar(newValue);
     }
     const onChange = (e) =>{
-        const { name, value } = e.target;
+        const { value } = e.target;
         setReview(value);
     };
 

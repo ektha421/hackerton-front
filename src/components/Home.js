@@ -11,8 +11,6 @@ const Home = ({
     getBanner
 }) => {
     // const [value, setValue] = useState(2);
-    console.log('newBookList',newBookList);
-    const value = 2;
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1400 },

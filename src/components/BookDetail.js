@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import Rating from '@material-ui/lab/Rating';
 
 const BookDetail = ({ info, star, onChangeStar, onChange, onSubmit}) => {
