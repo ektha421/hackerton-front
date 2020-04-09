@@ -1,5 +1,5 @@
-## URL
-DJbooks: http://dasom327.com.s3-website.ap-northeast-2.amazonaws.com/
+## DJbooks
+http://dasom327.com.s3-website.ap-northeast-2.amazonaws.com/
 
 ## Available Scripts
 
