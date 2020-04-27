@@ -6,7 +6,8 @@ export const bookActions = {
     uploadThumnail,
     addBook,
     getBookInfo,
-    addReview
+    addReview,
+    allBookList
 };
 
 
@@ -98,10 +99,33 @@ function addReview(review){
     function request() {
         return { type: bookConstants.REVIEW_ADD_REQUEST };
     }
-    function success(review ) {
+    function success(review) {
         return { type: bookConstants.REVIEW_ADD_SUCCESS, review };
     }
     function failure(error) {
         return { type: bookConstants.REVIEW_ADD_FAILURE, error };
+    }
+}
+
+function allBookList(page,limit){
+    console.log('limit',limit)
+    return dispatch => {
+        dispatch(request()); //로딩
+        bookService.allBookList(page,limit).then(
+            ({count,currentPage,rows}) => {
+                dispatch(success(count,currentPage,rows));
+            },
+            error => dispatch(failure(error.toString()))
+        )
+    }
+
+    function request(){
+        return { type: bookConstants.BOOK_ALL_REQUEST };
+    }
+    function success(count,currentPage,rows) {
+        return { type: bookConstants.BOOK_ALL_SUCCESS, count,currentPage,rows };
+    }
+    function failure(error) {
+        return { type: bookConstants.BOOK_ALL_SUCCESS, error };
     }
 }

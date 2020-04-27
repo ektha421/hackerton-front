@@ -7,7 +7,8 @@ export const bookService = {
     uploadThumnail,
     addBook,
     getBookInfo,
-    addReview
+    addReview,
+    allBookList
 };
 function uploadThumnail(file ) {
 
@@ -57,6 +58,19 @@ function addReview(reviewBody){
         method: 'POST',
         headers: headers,
         body  
+    }).then(handleResponse);
+}
+
+function allBookList(page,limit){
+    let headers = authHeader();
+
+    return fetch(process.env.REACT_APP_API_URL + "/books", {
+        method: "GET",
+        headers: headers,
+        params: {
+        page: page,
+        limit: limit
+    }
     }).then(handleResponse);
 }
 

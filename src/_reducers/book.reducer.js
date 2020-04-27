@@ -12,6 +12,9 @@ const initialState = {
   reviewScroe: 0,
   viewCnt: 0,
   reviews: [],
+  list : [],
+  count:0,
+  currentPage:1,
 };
 
 export function book(state = initialState, action) {
@@ -69,6 +72,20 @@ export function book(state = initialState, action) {
       return {
         error: action.error
       };
+    case bookConstants.BOOK_ALL_REQUEST:
+      return {
+        list : []
+      };
+    case bookConstants.BOOK_ALL_SUCCESS:
+      return {
+          list : action.rows,
+          count :action.count,
+          currentPage : action.currentPage
+      };
+    case bookConstants.BOOK_ALL_FAILUR:
+      return {
+          error: action.error
+      };      
     default:
       return state
   }

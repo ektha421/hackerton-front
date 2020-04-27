@@ -1,10 +1,10 @@
 import React from 'react';
-import BookListItem from '../components/BookListItem';
+import BookListItemContainer from '../containers/BookListItemContainer';
 
-const BookListPage = () => {
+function BookListPage ()  {
     return (
         <div className="contents">
-            <BookListItem />
+            <BookListItemContainer/>
         </div>
     );
 };
