@@ -64,13 +64,13 @@ function addReview(reviewBody){
 function allBookList(page,limit){
     let headers = authHeader();
 
-    return fetch(process.env.REACT_APP_API_URL + "/books", {
+    // let query = 
+
+
+    return fetch(process.env.REACT_APP_API_URL + `/books?page=${page}&limit=${limit}`, {
         method: "GET",
         headers: headers,
-        params: {
-        page: page,
-        limit: limit
-    }
+    
     }).then(handleResponse);
 }
 

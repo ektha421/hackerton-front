@@ -35,10 +35,8 @@ const BookListItemContainer = () => {
      dispatch(bookActions.allBookList(page,limit))
     }, []);
   
-    const onPageChange = () => {
-     let page = currentPage + 1;
-        console.log(page,currentPage)
-      dispatch(bookActions.allBookList(page,limit));
+    const onPageChange = ( currentPage ) => {
+      dispatch(bookActions.allBookList(currentPage,limit));
     };
 
     return (

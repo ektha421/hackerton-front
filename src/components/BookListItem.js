@@ -48,7 +48,9 @@ const BookListItem = ({
             current={currentPage}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
-            onPageChange={onPageChange}
+            onPageChange={( {selected} )=>{
+              onPageChange (selected +1);
+            }}
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}
